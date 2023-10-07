@@ -102,6 +102,10 @@ for command in "${start_commands[@]}"; do
       echo "Starting pingvin"
       docker compose -f /docker/pingvin/docker-compose.yml up -d
       ;;
+    satisfactory)
+      echo "Starting Satisfactory"
+      docker compose -f /docker/satisfactory/docker-compose.yml up -d
+      ;;
     all)
       echo "Starting all Services"
       docker compose -f /docker/cryotea.com/docker-compose.yml up -d
@@ -123,6 +127,7 @@ for command in "${start_commands[@]}"; do
       docker compose -f /docker/archiveTeamWarrior/docker-compose.yml up -d
       docker compose -f /docker/homeassistant/docker-compose.yml up -d
       docker compose -f /docker/pingvin/docker-compose.yml up -d
+      docker compose -f /docker/satisfactory/docker-compose.yml up -d
       ;;
     *)
       echo "Unknown start option: $command"
@@ -207,6 +212,10 @@ if [[ ${#stop_commands[@]} -ne 0 ]]; then
         echo "Stopping pingvin"
         docker compose -f /docker/pingvin/docker-compose.yml down
         ;;
+      satisfactory)
+        echo "Stopping satisfactory"
+        docker compose -f /docker/satisfactory/docker-compose.yml down
+        ;;
       all)
         echo "Stopping all Services"
         docker compose -f /docker/cryotea.com/docker-compose.yml down
@@ -228,6 +237,7 @@ if [[ ${#stop_commands[@]} -ne 0 ]]; then
         docker compose -f /docker/archiveTeamWarrior/docker-compose.yml down
         docker compose -f /docker/homeassistant/docker-compose.yml down
         docker compose -f /docker/pingvin/docker-compose.yml down
+        docker compose -f /docker/satisfactory/docker-compose.yml down
         ;;
       *)
         echo "Unknown stop option: $stop_command"
@@ -313,6 +323,10 @@ if [[ ${#restart_commands[@]} -ne 0 ]]; then
         echo "Restarting pingvin"
         docker compose -f /docker/pingvin/docker-compose.yml restart
         ;;
+      satisfactory)
+        echo "Restarting satisfactory"
+        docker compose -f /docker/satisfactory/docker-compose.yml restart
+        ;;
       all)
         echo "Restarting all Services"
         docker compose -f /docker/cryotea.com/docker-compose.yml restart
@@ -334,6 +348,7 @@ if [[ ${#restart_commands[@]} -ne 0 ]]; then
         docker compose -f /docker/archiveTeamWarrior/docker-compose.yml restart
         docker compose -f /docker/homeassistant/docker-compose.yml restart
         docker compose -f /docker/pingvin/docker-compose.yml restart
+        docker compose -f /docker/satisfactory/docker-compose.yml restart
         ;;
       *)
         echo "Unknown restart option: $restart_command"
