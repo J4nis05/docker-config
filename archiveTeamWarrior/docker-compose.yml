@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  archiveTeamWarrior:
+    image: atdr.meo.ws/archiveteam/warrior-dockerfile
+    container_name: archiveTeamWarrior
+    hostname: archiveTeamWarrior
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
+    restart: unless-stopped
+    environment:
+      - DOWNLOADER=J4nis05
+      - SELECTED_PROJECT=auto
+      - CONCURRENT_ITEMS=5
+
+networks:
+  default:
+    external: true
+    name: proxynet
