@@ -22,7 +22,7 @@ services:
             limits:
               memory: 12G
             reservations:
-              memory: 4G
+              memory: 8G
 
 networks:
   default:

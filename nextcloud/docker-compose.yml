@@ -9,7 +9,7 @@ services:
       - ./nextcloud-db:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=pass
-      - MYSQL_DATABASE=db
+      - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=user
       - MYSQL_PASSWORD=pass
 
@@ -23,7 +23,7 @@ services:
       - /data/docker/nextcloud:/var/www/html
     environment:
       - MYSQL_HOST=nextcloud-db
-      - MYSQL_DATABASE=db
+      - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=user
       - MYSQL_PASSWORD=pass
 

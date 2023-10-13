@@ -1,7 +1,8 @@
-version: "3.7"
+version: "3.8"
 services:
   liveterm:
-    container_name: liveterm
+    container_name: www.j4nis05.ch
+    restart: always
     build:
       context: .
       dockerfile: Dockerfile
