@@ -44,3 +44,4 @@ Backup of my Docler Compose Files
 * Synapse Disable IPv6
 * Nextcloud Trusted IP
 * Homeassistant Troubleshooting
+* SMB Access denied

@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  dashy:
+    container_name: dashy
+    image: lissy93/dashy
+    volumes:
+      - ./dashy/config.yml:/app/public/conf.yml
+      - ./dashy/item-icons:/app/public/item-icons
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: proxynet
