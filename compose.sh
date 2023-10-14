@@ -58,7 +58,11 @@ perform_action() {
     service=$2
 
     echo "$action $service"
-    docker compose -f "/docker/$service/docker-compose.yml" $action -d
+    if [ "$action" == "up" ]; then
+        docker compose -f "/docker/$service/docker-compose.yml" $action "-d"
+    else
+        docker compose -f "/docker/$service/docker-compose.yml" $action
+    fi
 }
 
 # Process the start commands

@@ -4,8 +4,9 @@ services:
   synapse:
     image: matrixdotorg/synapse:latest
     container_name: synapse
+    restart: always
     volumes:
-      - /data/docker/matrix/data:/data
+      - /docker/ext/data/docker/matrix/data:/data
     environment:
       VIRTUAL_HOST: "j4nis05.ch"
       VIRTUAL_PORT: 8008

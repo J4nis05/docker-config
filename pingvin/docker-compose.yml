@@ -6,8 +6,8 @@ services:
     container_name: pingvin
     restart: unless-stopped
     volumes:
-      - /data/docker/pingvin/data:/opt/app/backend/data
-      - /data/docker/pingvin/data/images:/opt/app/frontend/public/img
+      - /docker/ext/data/docker/pingvin/data:/opt/app/backend/data
+      - /docker/ext/data/docker/pingvin/data/images:/opt/app/frontend/public/img
 
 networks:
   default:
