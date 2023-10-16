@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta name="keywords" content="Cryotea, Cryo, Cryotea.com">
+    <meta name="description" content="Cryotea´s Website mit coolen stuff von ihr und links">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cryo´s Website</title>
+</head>
+<body onload="startTime()">
+    
+<div id="divmain"> <header class="header1">
+     <p id="date"> </p>
+     <p id="time"> </p> 
+     <p id="weekday"></p> 
+     <p> <a class="color1" href=index.html>Cryotea.com</a></p>
+     <p><input id= input_p_number type="text" style="font-size: medium;"  value=100 ></p> 
+     <p class="color2" id="pagenumber"> </p>
+    
+</header>
+<div id="main"> 
+    
+    <p id="text1">Willkomen auf meiner Website! Hier findet ihr information über mich und viel cooles Zeug!</p>
+    <p id="text2">Auf Seitennummer <span><a class="color2" href=links.html>101</a></span> geht es zu meinen Links!</p>
+    <p id="text3"><span class="c1">T</span><span class="c2">r</span><span class="c3">a</span><span class="c4">n</span><span class="c5">s</span> rights!</p>
+    <p id="text4">yo !</p>
+
+</div>
+
+
+</div>
+
+
+  <script> // Die Seitennummer, die muss immer geändert werden wenn eine neue Seite Gemacht wird.
+    var p = 100 
+    document.getElementById("pagenumber").innerHTML = 
+    p;
+  </script>
+
+    <script> // Das macht die Uhr oben rechts.
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('time').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+    }
+
+    function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+    }
+
+    </script>
+
+    <script>  // Das macht das ganze Datum d/m/y
+    date = new Date();
+    year = date.getFullYear();
+    month = date.getMonth() + 1;
+    day = date.getDate();
+    document.getElementById("date").innerHTML = day+ "/" + month + "/" + year;
+    </script>
+
+    <script> // Das macht die Wochentage
+    const weekday = ["So","Mo","Di","Mi","Do","Fr","Sa"];
+
+    const d = new Date();
+    let day = weekday[d.getDay()];
+    document.getElementById("weekday").innerHTML = day;
+
+    </script>
+
+
+
+
+</body>
+</html>

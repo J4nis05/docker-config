@@ -1,0 +1,2 @@
+docker build -t <image-name>:<tag> -f MyDockerfile .
+docker push <image-name>:<tag>

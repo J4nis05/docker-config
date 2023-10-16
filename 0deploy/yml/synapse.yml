@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  synapse:
+    image: matrixdotorg/synapse:latest
+    container_name: synapse
+    restart: always
+    volumes:
+      - /docker/ext/data/docker/matrix/data:/data
+    environment:
+      VIRTUAL_HOST: "j4nis05.ch"
+      VIRTUAL_PORT: 8008
+      SYNAPSE_SERVER_NAME: "j4nis05.ch"
+      SYNAPSE_REPORT_STATS: "yes"
+
+networks:
+  default:
+    external: true
+    name: proxynet

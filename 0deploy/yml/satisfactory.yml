@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+    satisfactory-server:
+        container_name: 'satisfactory-server'
+        hostname: 'satisfactory-server'
+        image: 'wolveix/satisfactory-server:latest'
+        ports:
+            - '7777:7777/udp'
+            - '15000:15000/udp'
+            - '15777:15777/udp'
+        volumes:
+            - './config:/config'
+        environment:
+            - MAXPLAYERS=4
+            - PGID=1000
+            - PUID=1000
+            - STEAMBETA=false
+        restart: unless-stopped
+        deploy:
+          resources:
+            limits:
+              memory: 12G
+            reservations:
+              memory: 8G
+
+networks:
+  default:
+    external: true
+    name: proxynet

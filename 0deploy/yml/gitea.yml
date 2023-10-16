@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  gitea:
+    container_name: gitea
+    image: gitea/gitea:latest
+    restart: always
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+    volumes:
+      - ./gitea/data:/data
+      - ./gitea/config:/etc/gitea
+
+networks:
+  default:
+    external: true
+    name: proxynet
