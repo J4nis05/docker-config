@@ -1,21 +1,28 @@
-# Stage 1: Base image for dependencies installation and update
-FROM node:18-alpine as base
+# Use an official Node.js runtime as the base image
+FROM node:18-alpine
 
+# Expose port 3000
+EXPOSE 3000
+
+# Set the working directory in the container
 WORKDIR /home/node/app
+
+# Copy package.json for dependency installation
 COPY ./data/www.j4nis05.ch/package.json ./
+
+# Install dependencies
 RUN npm install -g npm-check-updates && \
     npm-check-updates -u && \
-    npm install --legacy-peer-deps
+    npm install
+
+# Copy the rest of the application files
 COPY ./data/www.j4nis05.ch ./
 
-# Stage 2: Production stage for building the application
-FROM base as production
-
-ENV NODE_PATH=./build
+# Production stage for building the application
 RUN npm run build
 
-# Optionally, you can have a third stage for serving the application, like:
-FROM nginx:alpine
-COPY --from=production /home/node/app/build /usr/share/nginx/html
+# Set NODE_PATH for production
+ENV NODE_PATH=./build
 
-# Example of serving the application using nginx, you can uncomment and adjust it according to your needs.
+# Command to start your application
+CMD ["npm", "run", "dev"]
