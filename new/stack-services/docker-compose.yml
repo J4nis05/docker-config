@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+  dashy:
+    container_name: dashy
+    image: lissy93/dashy
+    volumes:
+      - ./services/dashy/config.yml:/app/public/conf.yml
+      - ./services/dashy/item-icons:/app/public/item-icons
+    environment:
+      - NODE_ENV=production
+    restart: always
+
+  nginx:
+    container_name: nginx
+    image: jc21/nginx-proxy-manager:latest
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+      - 81:81
+    volumes:
+      - ./services/nginx/data:/data
+      - ./services/nginx/letsencrypt:/etc/letsencrypt
+    environment:
+      - TZ=Europe/Zurich
+      - DISABLE_IPV6=true
+    
+  portainer:
+    container_name: portainer
+    image: portainer/portainer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
+
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+
+networks:
+  default:
+    external: true
+    name: proxynet

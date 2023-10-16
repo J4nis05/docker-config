@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  minecraft-server:
+    container_name: mc-wohnzimmer
+    image: j4nis05/minecraft-server
+    ports:
+      - "25565:25565"
+      - "25575:25575"
+    volumes:
+      - ./games/minecraft:/minecraft
+
+networks:
+  default:
+    external: true
+    name: proxynet

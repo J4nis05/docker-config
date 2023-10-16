@@ -1,0 +1,35 @@
+# Web
+version: "3.8"
+
+services:
+  admin.j4nis05.ch:
+    container_name: admin.j4nis05.ch
+    image: httpd:latest
+    restart: always
+    volumes:
+      - ./web/admin.j4nis05.ch/html:/usr/local/apache2/htdocs
+
+  cryotea.com:
+    container_name: cryotea.com
+    image: j4nis05/cryotea.com
+    restart: always
+
+  j4nis05.ch:
+    container_name: j4nis05.ch
+    image: j4nis05/j4nis05.ch
+    restart: always
+
+  startpage:
+    container_name: startpage
+    image: j4nis05/startpage:latest
+    restart: always
+
+  www.j4nis05.ch:
+    container_name: www.j4nis05.ch
+    image: j4nis05/www.j4nis05.ch
+
+
+networks:
+  default:
+    external: true
+    name: proxynet

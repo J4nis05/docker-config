@@ -1,0 +1,54 @@
+# Media
+version: "3.8"
+
+services:
+  jellyfin:
+    container_name: jellyfin
+    image: jellyfin/jellyfin:latest
+    restart: always
+    volumes:
+      - ./media/jellyfin/config:/config
+      - ./media/jellyfin/cache:/cache
+      - /nas:/media
+
+  nextcloud-db:
+    container_name: nextcloud-db
+    image: mariadb:latest
+    restart: always
+    volumes:
+      - ./media/nextcloud-db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+
+  nextcloud:
+    container_name: nextcloud
+    image: nextcloud:latest
+    restart: always
+    depends_on:
+      - nextcloud-db
+    volumes:
+      - /docker/ext/data/docker/nextcloud:/var/www/html
+    environment:
+      - MYSQL_HOST=nextcloud-db
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+
+  podgrab:
+    image: akhilrex/podgrab
+    container_name: podgrab
+    environment:
+     - CHECK_FREQUENCY=240
+    volumes:
+      - ./media/podgrab/:/config
+      - /nas/media/audio/podcasts:/assets
+    restart: always
+
+
+networks:
+  default:
+    external: true
+    name: proxynet

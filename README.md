@@ -27,7 +27,7 @@ Backup of my Docler Compose Files
 - [ ] Synapse Server       [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
 - [X] Vaultwarden          [vault.j4nis05.ch](https://vault.j4nis05.ch)
 
-### Services
+### Services (Server Management)
 - [ ] Dashy                [status.j4nis05.ch](https://status.j4nis05.ch)
 - [X] Nginx Proxy Manager  [proxy.j4nis05.ch](https://proxy.j4nis05.ch)
 - [X] Portainer            [docker.j4nis05.ch](https://docker.j4nis05.ch)
