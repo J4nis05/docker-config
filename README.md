@@ -10,7 +10,8 @@ Backup of my Docker Compose Files
 
 ### Data
 - [X] Pingvin Share        [send.j4nis05.ch](https://send.j4nis05.ch)
-- [ ] SMB Share            [share.j4nis05.ch](https://share.j4nis05.ch)
+- [X] SMB Webinterface     [share.j4nis05.ch](https://share.j4nis05.ch)
+- [ ] SMB Server
 
 ### Games
 - [X] Minecraft Server
