@@ -4,14 +4,16 @@ services:
   qbittorrent:
     image: binhex/arch-qbittorrentvpn
     container_name: qbit
+    restart: unless-stopped
     cap_add:
       - NET_ADMIN
     devices:
       - /dev/net/tun
     ports:
-      - "6881:6881"
-      - "6881:6881/udp"
-      - "8118:8118"
+      - 6881:6881
+      - 6881:6881/udp
+      - 8118:8118
+      - 8080:8080
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./arr/config:/config
@@ -27,7 +29,6 @@ services:
       - LAN_NETWORK=192.168.1.0/24
       - PUID=1000
       - GUID=1000
-    restart: unless-stopped
 
 networks:
   default:

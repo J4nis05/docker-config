@@ -3,8 +3,8 @@ version: "3.8"
 
 services:
   jellyfin:
-    container_name: jellyfin
     image: jellyfin/jellyfin:latest
+    container_name: jellyfin
     restart: always
     volumes:
       - ./media/jellyfin/config:/config
@@ -12,8 +12,8 @@ services:
       - /nas:/media
 
   nextcloud-db:
-    container_name: nextcloud-db
     image: mariadb:latest
+    container_name: nextcloud-db
     restart: always
     volumes:
       - ./media/nextcloud-db:/var/lib/mysql
@@ -24,8 +24,8 @@ services:
       - MYSQL_PASSWORD=pass
 
   nextcloud:
-    container_name: nextcloud
     image: nextcloud:latest
+    container_name: nextcloud
     restart: always
     depends_on:
       - nextcloud-db
@@ -40,12 +40,12 @@ services:
   podgrab:
     image: akhilrex/podgrab
     container_name: podgrab
-    environment:
-     - CHECK_FREQUENCY=240
+    restart: always
     volumes:
       - ./media/podgrab/:/config
       - /nas/media/audio/podcasts:/assets
-    restart: always
+    environment:
+     - CHECK_FREQUENCY=240
 
 
 networks:

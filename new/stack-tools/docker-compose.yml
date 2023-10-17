@@ -4,34 +4,49 @@ services:
   archiveTeamWarrior:
     image: atdr.meo.ws/archiveteam/warrior-dockerfile
     container_name: archiveTeamWarrior
+    restart: always
     hostname: archiveTeamWarrior
     labels:
       com.centurylinklabs.watchtower.enable: "true"
-    restart: always
     environment:
       - DOWNLOADER=J4nis05
       - SELECTED_PROJECT=auto
       - CONCURRENT_ITEMS=5
 
   gitea:
-    container_name: gitea
     image: gitea/gitea:latest
+    container_name: gitea
     restart: always
-    environment:
-      - USER_UID=1000
-      - USER_GID=1000
     volumes:
       - ./tools/gitea/data:/data
       - ./tools/gitea/config:/etc/gitea
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
 
   homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
     container_name: homeassistant
-    image: "ghcr.io/home-assistant/home-assistant:stable"
+    restart: always
+    privileged: true
     volumes:
       - ./tools/home-assistant:/config
       - /etc/localtime:/etc/localtime:ro
-    restart: unless-stopped
-    privileged: true
+
+  meshcentral:
+    image: typhonragewind/meshcentral
+    container_name: meshcentral
+    restart: always
+    volumes:
+      - ./tools/meshcentral/data:/opt/meshcentral/meshcentral-data
+      - ./tools/meshcentral/user_files:/opt/meshcentral/meshcentral-files
+    environment:
+      - HOSTNAME=mesh.j4nis05.ch
+      - REVERSE_PROXY=mesh.j4nis05.ch
+      - REVERSE_PROXY_TLS_PORT=
+      - IFRAME=false
+      - ALLOW_NEW_ACCOUNTS=false
+      - WEBRTC=false
   
   synapse:
     image: matrixdotorg/synapse:latest
@@ -46,13 +61,13 @@ services:
       SYNAPSE_REPORT_STATS: "yes"
 
   vaultwarden:
-    container_name: vaultwarden
     image: vaultwarden/server:latest
-    restart: unless-stopped
-    environment:
-      WEBSOCKET_ENABLED: "true"
+    container_name: vaultwarden
+    restart: always
     volumes:
       - ./tools/vaultwarden:/data
+    environment:
+      WEBSOCKET_ENABLED: "true"
 
 
 networks:

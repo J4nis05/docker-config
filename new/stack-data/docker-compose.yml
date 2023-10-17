@@ -12,23 +12,23 @@ services:
   smb:
     image: dperson/samba
     container_name: smb-server
+    restart: always
     ports:
-      - "139:139"
-      - "445:445"
+      - 139:139
+      - 445:445
     volumes:
       - /docker/ext/smb/config:/etc/samba # move smb.conf here
       - /docker/ext/smb/data:/data        # main data dir
       - /docker/ext/qbit:/qbit            # mount for torrents
     environment:
       - USERS=uname:pass
-    restart: unless-stopped
 
   smb-web:
     image: filebrowser/filebrowser
     container_name: smb-web
+    restart: unless-stopped
     volumes:
       - /docker/ext/smb/data:/srv
-    restart: unless-stopped
 
 networks:
   default:
