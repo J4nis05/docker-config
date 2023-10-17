@@ -2,48 +2,25 @@
 
 # Initialize variables
 declare -A services=(
-    ["admin.j4nis05.ch"]="/docker/admin.j4nis05.ch/docker-compose.yml"
-    ["archiveTeamWarrior"]="/docker/archiveTeamWarrior/docker-compose.yml"
-    ["cryotea.com"]="/docker/cryotea.com/docker-compose.yml"
-    ["dashy"]="/docker/dashy/docker-compose.yml"
-    ["gitea"]="/docker/gitea/docker-compose.yml"
-    ["homeassistant"]="/docker/homeassistant/docker-compose.yml"
-    ["j4nis05.ch"]="/docker/j4nis05.ch/docker-compose.yml /docker/www.j4nis05.ch/docker-compose.yml"
-    ["jellyfin"]="/docker/jellyfin/docker-compose.yml"
-    ["meshcentral"]="/docker/meshcentral/docker-compose.yml"
-    ["minecraft"]="/docker/minecraft/docker-compose.yml"
-    ["nextcloud"]="/docker/nextcloud/docker-compose.yml"
-    ["nginx"]="/docker/nginx/docker-compose.yml"
-    ["pingvin"]="/docker/pingvin/docker-compose.yml"
-    ["podgrab"]="/docker/podgrab/docker-compose.yml"
-    ["portainer"]="/docker/portainer/docker-compose.yml"
-    ["qbit"]="/docker/qbit/docker-compose.yml"
-    ["satisfactory"]="/docker/satisfactory/docker-compose.yml"
-    ["smb"]="/docker/smb/docker-compose.yml"
-    ["startpage"]="/docker/startpage/docker-compose.yml"
-    ["synapse"]="/docker/synapse/docker-compose.yml"
-    ["vaultwarden"]="/docker/vaultwarden/docker-compose.yml"
-    ["watchtower"]="/docker/watchtower/docker-compose.yml"
+    ["stack-arr"]="/docker/stack-arr/docker-compose.yml"
+    ["stack-data"]="/docker/stack-data/docker-compose.yml"
+    ["stack-games"]="/docker/stack-games/docker-compose.yml"
+    ["stack-media"]="/docker/stack-media/docker-compose.yml"
+    ["stack-services"]="/docker/stack-services/docker-compose.yml"
+    ["stack-tools"]="/docker/stack-tools/docker-compose.yml"
+    ["stack-web"]="/docker/stack-web/docker-compose.yml"
 )
 
 
 # List of all available services
 all_services=(
-  "admin.j4nis05.ch"    "qbit"
-  "archiveTeamWarrior"  "satisfactory" 
-  "cryotea.com"         "smb" 
-  "dashy"               "startpage" 
-  "gitea"               "synapse"
-  "homeassistant"       "vaultwarden" 
-  "j4nis05.ch"          "watchtower" 
-  "jellyfin"            "www.j4nis05.ch"
-  "meshcentral"         
-  "minecraft"           
-  "nextcloud"           
-  "nginx"               
-  "pingvin"             
-  "podgrab"             
-  "portainer"           
+    "stack-arr"
+    "stack-data"
+    "stack-games"
+    "stack-media"
+    "stack-services"
+    "stack-tools"
+    "stack-web"         
 )
 
 
