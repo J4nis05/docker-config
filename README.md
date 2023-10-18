@@ -1,10 +1,9 @@
 # docker-config
 ---
-
 Backup of my Docker Compose Files
 
-## Stacks
 
+## Stacks
 ### Arr
 - [X] qBittorrent          [qbit.j4nis05.ch](https://qbit.j4nis05.ch)
 
@@ -18,8 +17,9 @@ Backup of my Docker Compose Files
 
 ### Media
 - [X] Jellyfin             [jelly.j4nis05.ch](https://jelly.j4nis05.ch)
-- [X] Nextcloud            [nas.j4nis05.ch](https://nas.j4nis05.ch)
 - [X] Podgrab              [podgrab.j4nis05.ch](https://podgrab.j4nis05.ch)
+- [X] Nextcloud            [nas.j4nis05.ch](https://nas.j4nis05.ch)
+- [X] Nextcloud Database
 
 ### Services
 - [X] Nginx Proxy Manager  [proxy.j4nis05.ch](https://proxy.j4nis05.ch)
@@ -43,10 +43,8 @@ Backup of my Docker Compose Files
 - [X] Personal Website:    [www.j4nis05.ch](https://www.j4nis05.ch)
 
 
-
 ## To-Do
 * Dashy Config
 * SMB Access Denied Error
 * Synapse Disable IPv6
-* Nextcloud Installation Error
 * Homeassistant Troubleshooting
