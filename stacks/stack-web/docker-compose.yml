@@ -7,7 +7,7 @@ services:
     container_name: admin.j4nis05.ch
     restart: always
     volumes:
-      - ./web/admin.j4nis05.ch/html:/usr/local/apache2/htdocs
+      - ./data/admin.j4nis05.ch/html:/usr/local/apache2/htdocs
 
   cryotea.com:
     image: j4nis05/cryotea.com

@@ -10,8 +10,8 @@ services:
       - 443:443
       - 81:81
     volumes:
-      - ./services/nginx/data:/data
-      - ./services/nginx/letsencrypt:/etc/letsencrypt
+      - ./data/nginx/data:/data
+      - ./data/nginx/letsencrypt:/etc/letsencrypt
     environment:
       - TZ=Europe/Zurich
       - DISABLE_IPV6=true

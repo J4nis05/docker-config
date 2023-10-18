@@ -20,7 +20,7 @@ all_services=(
     "stack-media"
     "stack-services"
     "stack-tools"
-    "stack-web"         
+    "stack-web"
 )
 
 

@@ -7,8 +7,8 @@ services:
     container_name: jellyfin
     restart: always
     volumes:
-      - ./media/jellyfin/config:/config
-      - ./media/jellyfin/cache:/cache
+      - ./data/jellyfin/config:/config
+      - ./data/jellyfin/cache:/cache
       - /nas:/media
 
   nextcloud-db:
@@ -16,7 +16,7 @@ services:
     container_name: nextcloud-db
     restart: always
     volumes:
-      - ./media/nextcloud-db:/var/lib/mysql
+      - ./data/nextcloud-db:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=pass
       - MYSQL_DATABASE=nextcloud
@@ -42,7 +42,7 @@ services:
     container_name: podgrab
     restart: always
     volumes:
-      - ./media/podgrab/:/config
+      - ./data/podgrab/:/config
       - /nas/media/audio/podcasts:/assets
     environment:
      - CHECK_FREQUENCY=240

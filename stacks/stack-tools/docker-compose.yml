@@ -18,8 +18,8 @@ services:
 #    container_name: dashy
 #    restart: always
 #    volumes:
-#      - ./services/dashy/config.yml:/app/public/conf.yml
-#      - ./services/dashy/item-icons:/app/public/item-icons
+#      - ./data/dashy/config.yml:/app/public/conf.yml
+#      - ./data/dashy/item-icons:/app/public/item-icons
 #    environment:
 #      - NODE_ENV=production
 
@@ -28,8 +28,8 @@ services:
     container_name: gitea
     restart: always
     volumes:
-      - ./tools/gitea/data:/data
-      - ./tools/gitea/config:/etc/gitea
+      - ./data/gitea/data:/data
+      - ./data/gitea/config:/etc/gitea
     environment:
       - USER_UID=1000
       - USER_GID=1000
@@ -40,7 +40,7 @@ services:
     restart: always
     privileged: true
     volumes:
-      - ./tools/home-assistant:/config
+      - ./data/home-assistant:/config
       - /etc/localtime:/etc/localtime:ro
 
   meshcentral:
@@ -48,8 +48,8 @@ services:
     container_name: meshcentral
     restart: always
     volumes:
-      - ./tools/meshcentral/data:/opt/meshcentral/meshcentral-data
-      - ./tools/meshcentral/user_files:/opt/meshcentral/meshcentral-files
+      - ./data/meshcentral/data:/opt/meshcentral/meshcentral-data
+      - ./data/meshcentral/user_files:/opt/meshcentral/meshcentral-files
     environment:
       - HOSTNAME=mesh.j4nis05.ch
       - REVERSE_PROXY=mesh.j4nis05.ch
@@ -75,7 +75,7 @@ services:
     container_name: vaultwarden
     restart: always
     volumes:
-      - ./tools/vaultwarden:/data
+      - ./data/vaultwarden:/data
     environment:
       WEBSOCKET_ENABLED: "true"
 

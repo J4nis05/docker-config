@@ -16,8 +16,8 @@ services:
       - 8080:8080
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./arr/config:/config
-      - ./arr/theme:/theme
+      - ./data/config:/config
+      - ./data/theme:/theme
       - /docker/ext/qbit:/data
     environment:
       - VPN_ENABLED=yes
