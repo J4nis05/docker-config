@@ -6,7 +6,7 @@ Backup of my Docker Compose Files
 ## Stacks
 
 ### Arr
-- [ ] qBittorrent          [qbit.j4nis05.ch](https://qbit.j4nis05.ch)
+- [X] qBittorrent          [qbit.j4nis05.ch](https://qbit.j4nis05.ch)
 
 ### Data
 - [X] Pingvin Share        [send.j4nis05.ch](https://send.j4nis05.ch)
@@ -45,7 +45,6 @@ Backup of my Docker Compose Files
 
 
 ## To-Do
-* qBit Troubleshooting
 * Dashy Config
 * SMB Access Denied Error
 * Synapse Disable IPv6
