@@ -31,7 +31,7 @@ Backup of my Docker Compose Files
 - [ ] Dashy                [status.j4nis05.ch](https://status.j4nis05.ch)
 - [X] Gitea                [git.j4nis05.ch](https://git.j4nis05.ch)
 - [ ] Homeassistant        [assist.j4nis05.ch](https://assist.j4nis05.ch)
-- [X] Meshcentral          [mesh.j4nis05.ch](https://mesh.j4nis05.ch)
+- [ ] Meshcentral          [mesh.j4nis05.ch](https://mesh.j4nis05.ch)
 - [ ] Synapse Server       [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
 - [X] Vaultwarden          [vault.j4nis05.ch](https://vault.j4nis05.ch)
 
@@ -44,6 +44,7 @@ Backup of my Docker Compose Files
 
 
 ## To-Do
+* Meshcentral Troubleshooting
 * Dashy Config
 * SMB Access Denied Error
 * Synapse Disable IPv6
