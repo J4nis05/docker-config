@@ -10,7 +10,7 @@ Backup of my Docker Compose Files
 ### Data
 - [X] Pingvin Share        [send.j4nis05.ch](https://send.j4nis05.ch)
 - [X] SMB Webinterface     [share.j4nis05.ch](https://share.j4nis05.ch)
-- [ ] SMB Server
+- [X] SMB Server
 
 ### Games
 - [X] Minecraft Server
@@ -46,6 +46,5 @@ Backup of my Docker Compose Files
 ## To-Do
 * Meshcentral Troubleshooting
 * Dashy Config
-* SMB Access Denied Error
 * Synapse Disable IPv6
 * Homeassistant Troubleshooting

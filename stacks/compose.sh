@@ -11,43 +11,42 @@ declare -A services=(
     ["stack-web"]="/docker/stack-web/docker-compose.yml"
 )
 
-
-# List of all available services
-all_services=(
-    "stack-arr"
-    "stack-data"
-    "stack-games"
-    "stack-media"
-    "stack-services"
-    "stack-tools"
-    "stack-web"
-)
-
-
 # Define functions for actions
 
 # Function to start a service
 start_service() {
-    service=$1                                    # Get Service Name
-    compose_file=$2                               # Get Compose File Path
-    echo "Starting $service"                      # Print Start Message
-    docker compose -f $compose_file up -d         # Start the service in detached mode
+    service=$1
+    compose_file=${services[$service]}
+    if [ -n "$compose_file" ]; then
+        echo "Starting $service"
+        docker compose -f $compose_file up -d
+    else
+        echo "Compose file for $service not found."
+    fi
 }
 
 # Function to stop a service
 stop_service() {
     service=$1
-    compose_file=$2
-    echo "Stopping $service"
-    docker compose -f $compose_file down
+    compose_file=${services[$service]}
+    if [ -n "$compose_file" ]; then
+        echo "Stopping $service"
+        docker compose -f $compose_file down
+    else
+        echo "Compose file for $service not found."
+    fi
 }
 
 # Function to restart a service
 restart_service() {
     service=$1
-    compose_file=$2
-    echo "Restarting $service"
-    docker compose -f $compose_file restart
+    compose_file=${services[$service]}
+    if [ -n "$compose_file" ]; then
+        echo "Restarting $service"
+        docker compose -f $compose_file restart
+    else
+        echo "Compose file for $service not found."
+    fi
 }
 
 # Parse command line arguments
@@ -55,15 +54,15 @@ while getopts "u:d:r:" opt; do
     case ${opt} in
         u)
             action="start"
-            services["start"]=$OPTARG
+            service_to_start=$OPTARG
             ;;
         d)
             action="stop"
-            services["stop"]=$OPTARG
+            service_to_stop=$OPTARG
             ;;
         r)
             action="restart"
-            services["restart"]=$OPTARG
+            service_to_restart=$OPTARG
             ;;
         \?)
             echo "Invalid option: -$OPTARG" 1>&2
@@ -75,48 +74,32 @@ while getopts "u:d:r:" opt; do
 done
 
 # Process the actions
-for action in "${!services[@]}"; do
-    for service in ${services[$action]}; do
-        case $action in
-            start)
-                start_service $action $service
-                ;;
-            stop)
-                stop_service $action $service
-                ;;
-            restart)
-                restart_service $action $service
-                ;;
-        esac
-    done
-done
+case $action in
+    start)
+        start_service $service_to_start
+        ;;
+    stop)
+        stop_service $service_to_stop
+        ;;
+    restart)
+        restart_service $service_to_restart
+        ;;
+    *)
+        echo "No valid action specified."
+        ;;
+esac
 
 # Process the "all" option
-
-# Start, stop, or restart all services defined in the `all_services` array
-if [[ ${#services["start"]} -ne 0 ]]; then        # If there are services to start
-    for service in "${all_services[@]}"; do       # Loop through all services in the all_services array
-        compose_file="${services[$service]}"      # Get the Docker Compose file path for the current service
-        if [ ! -z "$compose_file" ]; then         # If the Docker Compose file path is not empty
-            start_service $service $compose_file  # Start the service using the defined function
-        fi
+if [ $action == "start" ]; then
+    for service in "${!services[@]}"; do
+        start_service $service
     done
-fi
-
-if [[ ${#services["stop"]} -ne 0 ]]; then
-    for service in "${all_services[@]}"; do
-        compose_file="${services[$service]}"
-        if [ ! -z "$compose_file" ]; then
-            stop_service $service $compose_file
-        fi
+elif [ $action == "stop" ]; then
+    for service in "${!services[@]}"; do
+        stop_service $service
     done
-fi
-
-if [[ ${#services["restart"]} -ne 0 ]]; then
-    for service in "${all_services[@]}"; do
-        compose_file="${services[$service]}"
-        if [ ! -z "$compose_file" ]; then
-            restart_service $service $compose_file
-        fi
+elif [ $action == "restart" ]; then
+    for service in "${!services[@]}"; do
+        restart_service $service
     done
 fi

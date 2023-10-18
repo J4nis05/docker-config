@@ -9,20 +9,6 @@ services:
       - /docker/ext/data/docker/pingvin/data:/opt/app/backend/data
       - /docker/ext/data/docker/pingvin/data/images:/opt/app/frontend/public/img
 
-  smb:
-    image: dperson/samba
-    container_name: smb-server
-    restart: always
-    ports:
-      - 139:139
-      - 445:445
-    volumes:
-      - /docker/ext/smb/config:/etc/samba # move smb.conf here
-      - /docker/ext/smb/data:/data        # main data dir
-      - /docker/ext/qbit:/qbit            # mount for torrents
-    environment:
-      - USERS=uname:pass
-
   smb-web:
     image: filebrowser/filebrowser
     container_name: smb-web
