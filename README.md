@@ -22,13 +22,13 @@ Backup of my Docker Compose Files
 - [X] Podgrab              [podgrab.j4nis05.ch](https://podgrab.j4nis05.ch)
 
 ### Services
-- [ ] Dashy                [status.j4nis05.ch](https://status.j4nis05.ch)
 - [X] Nginx Proxy Manager  [proxy.j4nis05.ch](https://proxy.j4nis05.ch)
 - [X] Portainer            [docker.j4nis05.ch](https://docker.j4nis05.ch)
 - [X] Watchtower
 
 ### Tools
 - [X] Archive Team Warrior [warrior.j4nis05.ch](https://warrior.j4nis05.ch)
+- [ ] Dashy                [status.j4nis05.ch](https://status.j4nis05.ch)
 - [X] Gitea                [git.j4nis05.ch](https://git.j4nis05.ch)
 - [ ] Homeassistant        [assist.j4nis05.ch](https://assist.j4nis05.ch)
 - [X] Meshcentral          [mesh.j4nis05.ch](https://mesh.j4nis05.ch)
