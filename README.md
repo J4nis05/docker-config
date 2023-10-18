@@ -45,10 +45,9 @@ Backup of my Docker Compose Files
 
 
 ## To-Do
-* Dashy Compose & Config
-* qBit Compose & Config
-* smb Compose & Config
+* qBit Troubleshooting
+* Dashy Config
+* SMB Access Denied Error
 * Synapse Disable IPv6
 * Nextcloud Installation Error
 * Homeassistant Troubleshooting
-* SMB Access denied
