@@ -13,15 +13,15 @@ services:
       - SELECTED_PROJECT=auto
       - CONCURRENT_ITEMS=5
 
-#  dashy:
-#    image: lissy93/dashy
-#    container_name: dashy
-#    restart: always
-#    volumes:
-#      - ./data/dashy/config.yml:/app/public/conf.yml
-#      - ./data/dashy/item-icons:/app/public/item-icons
-#    environment:
-#      - NODE_ENV=production
+  dashy:
+    image: lissy93/dashy
+    container_name: dashy
+    restart: always
+    volumes:
+      - ./data/dashy/config.yml:/app/public/conf.yml
+      - ./data/dashy/item-icons:/app/public/item-icons
+    environment:
+      - NODE_ENV=production
 
   gitea:
     image: gitea/gitea:latest

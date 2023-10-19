@@ -1,0 +1,173 @@
+appConfig:
+  theme: cyberpunk
+  language: en
+  startingView: default
+  defaultOpeningMethod: sametab
+  statusCheck: true
+  statusCheckInterval: 0
+  faviconApi: allesedv
+  layout: vertical
+  iconSize: small
+  routingMode: history
+  enableMultiTasking: false
+  widgetsAlwaysUseProxy: false
+  webSearch:
+    disableWebSearch: false
+    searchEngine: duckduckgo
+    openingMethod: newtab
+    searchBangs: {}
+  enableFontAwesome: true
+  enableMaterialDesignIcons: false
+  hideComponents:
+    hideHeading: false
+    hideNav: false
+    hideSearch: false
+    hideSettings: false
+    hideFooter: false
+  auth:
+    enableGuestAccess: false
+    users:
+      - user: janisroelli@gmx.ch
+        hash: c13316319079a10c00fabcd17e1f12c0d3925c0e54ab1d73473d013799a235de
+        type: admin
+    enableKeycloak: false
+  showSplashScreen: true
+  preventWriteToDisk: false
+  preventLocalSave: false
+  disableConfiguration: false
+  disableConfigurationForNonAdmin: false
+  allowConfigEdit: true
+  enableServiceWorker: false
+  disableContextMenu: false
+  disableUpdateChecks: false
+  disableSmartSort: false
+  enableErrorReporting: false
+
+sections:
+  - name: Today
+    icon: far fa-smile-beam
+    displayData:
+      collapsed: false
+      hideForGuests: false
+    widgets:
+      - type: clock
+        options:
+          timeZone: Europe/Zurich
+          format: de-CH
+          customCityName: Thun
+          hideDate: false
+          hideSeconds: false
+        id: 0_513_clock
+      - type: weather
+        options:
+          apiKey: c1877d5c78b8626bdb38e9bc9c3a725a
+          city: Thun
+        id: 1_513_weather
+      - type: public-ip
+        id: 2_513_publicip
+      - type: apod
+        id: 3_513_apod
+
+  - name: System Information
+    icon: fas fa-info-circle
+    displayData:
+      collapsed: false
+      hideForGuests: false
+    widgets:
+    - type: system-info
+      interval: 5000
+    - type: disk-usage
+      interval: 10000
+    disks:
+    - path: /
+      label: Root
+    - path: /docker/ext/data
+      label: Data
+    - path: /docker/ext/smb
+      label: SMB
+    - path: /docker/ext/qbit
+      label: qBit
+
+  - name: Docker Services
+    icon: si-docker
+    items:
+      - title: qBittorrent
+        icon: favicon
+        url: https://qbit.j4nis05.ch
+        id: 1702_0_qbittorrent
+      - title: Pingvin Share
+        icon: favicon
+        url: https://send.j4nis05.ch
+        id: 1702_1_pingvin
+      - title: SMB Web
+        icon: favicon
+        url: https://share.j4nis05.ch
+        id: 1702_2_smb
+      - title: Jellyfin
+        icon: favicon
+        url: https://jellyfin.j4nis05.ch
+        id: 1702_3_jellyfin
+      - title: Podgrab
+        icon: favicon
+        url: https://podgrab.j4nis05.ch
+        id: 1702_4_podgrab
+      - title: Nextcloud
+        icon: favicon
+        url: https://nas.j4nis05.ch
+        id: 1702_5_nextcloud
+      - title: Proxy
+        icon: favicon
+        url: https://proxy.j4nis05.ch
+        id: 1702_6_proxy
+      - title: Portainer
+        icon: favicon
+        url: https://docker.j4nis05.ch
+        id: 1702_7_portainer
+      - title: Warrior
+        icon: favicon
+        url: https://warrior.j4nis05.ch
+        id: 1702_8_warrior
+      - title: Dashy
+        icon: favicon
+        url: https://status.j4nis05.ch
+        id: 1702_9_dashy
+      - title: Gitea
+        icon: favicon
+        url: https://git.j4nis05.ch
+        id: 1702_10_gitea
+      - title: Homeassistant
+        icon: favicon
+        url: https://assist.j4nis05.ch
+        id: 1702_11_homeassistant
+      - title: Meshcentral
+        icon: favicon
+        url: https://mesh.j4nis05.ch
+        id: 1702_12_meshcentral
+      - title: Matrix
+        icon: favicon
+        url: https://matrix.j4nis05.ch
+        id: 1702_13_matrix
+      - title: Vaultwarden
+        icon: favicon
+        url: https://vault.j4nis05.ch
+        id: 1702_14_vaultwarden
+      - title: admin.j4nis05.ch
+        icon: favicon
+        url: https://admin.j4nis05.ch
+        id: 1702_15_admin.j4nis05.ch
+      - title: cryotea.com
+        icon: favicon
+        url: http://cryotea.com
+        id: 1702_16_cryotea.com
+      - title: J4nis05.ch
+        icon: favicon
+        url: https://j4nis05.ch
+        id: 1702_17_j4nis05.ch
+      - title: start.j4nis05.ch
+        icon: favicon
+        url: https://start.j4nis05.ch
+        id: 1702_18_start.j4nis05.ch
+      - title: www.J4nis05.ch
+        icon: favicon
+        url: https://www.j4nis05.ch
+        id: 1702_19_www.j4nis05.ch
