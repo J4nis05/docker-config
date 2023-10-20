@@ -58,6 +58,7 @@ services:
       - ALLOW_NEW_ACCOUNTS=false
       - WEBRTC=false
   
+  # Note: Add "bind_addresses: ['127.0.0.1']" to listeners section in homeserver.yaml
   synapse:
     image: matrixdotorg/synapse:latest
     container_name: synapse
