@@ -44,5 +44,5 @@ Backup of my Docker Compose Files
 
 ## To-Do
 * Meshcentral Troubleshooting
-* Synapse Disable IPv6
+* Synapse Fix Issue with Proxy Forwarding 
 * Homeassistant Troubleshooting
