@@ -18,7 +18,7 @@ docker compose -f /docker/stack-web/docker-compose.yml down
 EOF
 
 # Perform the backup
-rsync -avz --delete --exclude='/ext' $REMOTE_USER@$REMOTE_SERVER:$SOURCE_DIR $DESTINATION_DIR
+rsync -avz --delete --include='/docker/ext/qbit/[]torrent/' --exclude='/docker/ext/*' --exclude='/docker/old' $REMOTE_USER@$REMOTE_SERVER:$SOURCE_DIR $DESTINATION_DIR
 
 # Start Docker services on the remote server
 ssh $REMOTE_USER@$REMOTE_SERVER 'bash -s' <<EOF
