@@ -28,7 +28,7 @@ Backup of my Docker Compose Files
 ### Tools
 - [X] Archive Team Warrior [warrior.j4nis05.ch](https://warrior.j4nis05.ch)
 - [X] Gitea                [git.j4nis05.ch](https://git.j4nis05.ch)
-- [ ] Homeassistant        [assist.j4nis05.ch](https://assist.j4nis05.ch)
+- [X] Homeassistant        [assist.j4nis05.ch](https://assist.j4nis05.ch)
 - [X] Meshcentral          [mesh.j4nis05.ch](https://mesh.j4nis05.ch)
 - [X] Synapse Server       [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
 - [X] Vaultwarden          [vault.j4nis05.ch](https://vault.j4nis05.ch)
@@ -42,6 +42,4 @@ Backup of my Docker Compose Files
 
 
 ## To-Do
-* Synapse Fix Issue with Proxy Forwarding 
-* Homeassistant Troubleshooting
 * Update Minecraft Server
