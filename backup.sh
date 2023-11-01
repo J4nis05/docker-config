@@ -32,7 +32,7 @@ docker compose -f /docker/stack-web/docker-compose.yml up -d
 EOF
 
 # Keep the last two full backups
-find /data/nyx -type d -name "backup_*" -printf '%T@ %p\n' | sort -n | head -n -2 | awk '{print $2}' | xargs rm -rf
+find /data/nyx -type d -name "backup_*" -printf '%T@ %p\n' | sort -n | head -n -5 | awk '{print $2}' | xargs rm -rf
 
 # Set ownership and permissions for the backup folder
 chown -R janis:janis /data/nyx
