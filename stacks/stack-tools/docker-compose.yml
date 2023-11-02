@@ -53,7 +53,7 @@ services:
     container_name: synapse
     restart: always
     volumes:
-      - /docker/ext/data/docker/matrix/data:/data
+      - ./data/synapse:/data
     environment:
       VIRTUAL_HOST: "j4nis05.ch"
       VIRTUAL_PORT: 8008
