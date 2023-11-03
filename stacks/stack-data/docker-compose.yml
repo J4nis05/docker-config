@@ -14,7 +14,9 @@ services:
     container_name: smb-web
     restart: unless-stopped
     volumes:
-      - /docker/ext/smb/data:/srv
+      - /docker/ext/data:/srv/smb
+      - /docker/ext/smb:/srv/qbit
+      - /docker/ext/qbit:/srv/data
 
 networks:
   default:

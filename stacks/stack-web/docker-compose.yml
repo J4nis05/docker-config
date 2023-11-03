@@ -27,6 +27,7 @@ services:
   www.j4nis05.ch:
     image: j4nis05/www.j4nis05.ch
     container_name: www.j4nis05.ch
+    restart: always
 
 
 networks:

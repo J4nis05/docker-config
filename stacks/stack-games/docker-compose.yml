@@ -4,6 +4,7 @@ services:
   minecraft-server:
     image: minecraft-server:latest
     container_name: mc-wohnzimmer
+    restart: always
     ports:
       - 25565:41340
       - 25575:25575

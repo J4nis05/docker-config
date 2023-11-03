@@ -13,7 +13,6 @@ services:
       - 6881:6881
       - 6881:6881/udp
       - 8118:8118
-      - 8080:8080
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./data/config:/config
