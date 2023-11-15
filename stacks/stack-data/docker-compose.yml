@@ -14,8 +14,8 @@ services:
     container_name: smb-web
     restart: unless-stopped
     volumes:
-      - /docker/ext/data:/srv/smb
-      - /docker/ext/smb:/srv/qbit
+      - /docker/ext/data:/srv/samba
+      - /docker/ext/smb:/srv/qbittorrent
       - /docker/ext/qbit:/srv/data
 
 networks:
