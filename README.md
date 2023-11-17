@@ -43,3 +43,4 @@ Backup of my Docker Compose Files
 
 ## To-Do
 * Update Minecraft Server
+* Update Compose Files on the server
