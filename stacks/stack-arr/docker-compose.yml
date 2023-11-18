@@ -1,6 +1,6 @@
 version: "3.8"
 
-services: 
+services:
   qbittorrent:
     image: binhex/arch-qbittorrentvpn
     container_name: qbit
