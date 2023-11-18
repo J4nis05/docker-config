@@ -30,6 +30,7 @@ Backup of my Docker Compose Files
 - [X] Gitea                [git.j4nis05.ch](https://git.j4nis05.ch)
 - [X] Homeassistant        [assist.j4nis05.ch](https://assist.j4nis05.ch)
 - [X] Meshcentral          [mesh.j4nis05.ch](https://mesh.j4nis05.ch)
+- [X] Onlyoffice           [office.j4nis05.ch](https://office.j4nis05.ch)
 - [X] Synapse Server       [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
 - [X] Vaultwarden          [vault.j4nis05.ch](https://vault.j4nis05.ch)
 
