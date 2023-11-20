@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Initialize variables
 declare -A services=(
     ["stack-arr"]="/docker/stack-arr/docker-compose.yml"
@@ -12,7 +11,6 @@ declare -A services=(
 )
 
 # Define functions for actions
-
 # Function to start a service
 start_service() {
     service=$1

@@ -43,3 +43,4 @@ Backup of my Docker Compose Files
 
 
 ## To-Do
+* Switch ONlyoffice Community Server into Production
