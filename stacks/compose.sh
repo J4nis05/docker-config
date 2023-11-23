@@ -3,6 +3,7 @@
 declare -A services=(
     ["stack-arr"]="/docker/stack-arr/docker-compose.yml"
     ["stack-data"]="/docker/stack-data/docker-compose.yml"
+    ["stack-chat"]="/docker/stack-chat/docker-compose.yml"
     ["stack-games"]="/docker/stack-games/docker-compose.yml"
     ["stack-media"]="/docker/stack-media/docker-compose.yml"
     ["stack-services"]="/docker/stack-services/docker-compose.yml"

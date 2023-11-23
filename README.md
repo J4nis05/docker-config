@@ -7,6 +7,10 @@ Backup of my Docker Compose Files
 ### Arr
 - [X] qBittorrent          [qbit.j4nis05.ch](https://qbit.j4nis05.ch)
 
+### Chat
+- [ ] Synapse Server       [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
+- [ ] Synapse Database
+
 ### Data
 - [X] Pingvin Share        [send.j4nis05.ch](https://send.j4nis05.ch)
 - [X] SMB Webinterface     [share.j4nis05.ch](https://share.j4nis05.ch)
@@ -31,7 +35,6 @@ Backup of my Docker Compose Files
 - [X] Homeassistant        [assist.j4nis05.ch](https://assist.j4nis05.ch)
 - [X] Meshcentral          [mesh.j4nis05.ch](https://mesh.j4nis05.ch)
 - [X] Onlyoffice           [office.j4nis05.ch](https://office.j4nis05.ch)
-- [ ] Synapse Server       [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
 - [X] Vaultwarden          [vault.j4nis05.ch](https://vault.j4nis05.ch)
 
 ### Web
@@ -43,5 +46,5 @@ Backup of my Docker Compose Files
 
 
 ## To-Do
-* Recreate Matrix
+* Recreate Matrix Stack
 * Switch Onlyoffice Community Server into Production
