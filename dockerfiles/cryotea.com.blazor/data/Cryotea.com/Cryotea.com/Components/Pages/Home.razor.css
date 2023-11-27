@@ -1,0 +1,68 @@
+  #input_p_number {
+  border:none;
+  background-color:rgb(71, 71, 71) ;
+  width:50px;
+  padding: 0cm;
+}
+  
+  
+#divmain {
+  height: 800px;
+  width: 600px;
+  margin:auto
+}
+  
+#top {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px; 
+    height: 100%;
+    justify-content: center;
+    align-items: top;
+    color:white;
+}
+
+#bottem{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px; 
+    height: 100%;
+    justify-content: center;
+    align-items: top;
+    color:white;
+}
+  
+#text1 {
+    height: 15%;
+    width: 15%;
+    
+}
+  
+#text2 {
+    height: 15%;
+    width: 15%;
+    
+}
+  
+#text3 {
+    display: flex;
+    flex-direction: column;
+    height: 15%;
+    width: 15%; 
+}
+  
+#text4 {
+    height: 15%;
+    width: 15%; 
+}
+  
+p span.c1 {color: #5BCEFA;}
+p span.c2 {color: #F5A9B8;}
+p span.c3 {color: #FFFFFF;}
+
+p span.c4{color: #fff430}
+p span.c5{color: #ffffff}
+p span.c6{color: #9c59d1}
+p span.c7{color: #292929}

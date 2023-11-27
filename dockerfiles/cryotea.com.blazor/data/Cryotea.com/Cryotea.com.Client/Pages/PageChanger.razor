@@ -1,0 +1,45 @@
+﻿@rendermode InteractiveWebAssembly
+
+@inject NavigationManager NavigationManager
+
+<p class="headercontentchild color2">@thisPageNumber</p>
+<input id="PagenumberInput" class="headercontentchild" type="text" @bind-value="pageInput" @oninput="InputValueChanged" @onkeypress="KeyPressed" />
+
+@code {
+    string pageInput = "100";
+
+    int thisPageNumber = 100;
+
+    int? pageNumberInput = null;
+
+    
+    private void InputValueChanged(ChangeEventArgs e)
+    {
+        pageInput = e.Value.ToString();
+        if (!string.IsNullOrWhiteSpace(pageInput))
+        {
+            bool isNumber = int.TryParse(pageInput, out int number);
+            if (isNumber)
+            {
+                pageNumberInput = number; // Update pageNumberInput only if the input is a valid number
+            }
+            else
+            {
+                pageNumberInput = null; // Reset pageNumberInput if the input is not a valid number
+            }
+        }
+        else
+        {
+            pageNumberInput = null; // Reset pageNumberInput if the input is empty
+        }
+    }
+
+    private async Task KeyPressed(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && pageNumberInput.HasValue)
+        {
+            string url = $"/{pageNumberInput}"; // Use a relative path
+            NavigationManager.NavigateTo(url);
+        }
+    }
+}
