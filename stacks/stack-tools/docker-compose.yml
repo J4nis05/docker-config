@@ -48,28 +48,6 @@ services:
       - ALLOW_NEW_ACCOUNTS=false
       - WEBRTC=false
 
-  onlyoffice-document-server:
-    image: onlyoffice/documentserver
-    container_name: onlyoffice-document-server
-    restart: always
-
-  onlyoffice-community-server:
-    image: onlyoffice/communityserver
-    container_name: onlyoffice-community-server
-    restart: always
-    depends_on:
-      - onlyoffice-document-server
-    volumes:
-      - ./data/onlyoffice/logs:/var/log/onlyoffice 
-      - ./data/onlyoffice:/var/www/onlyoffice/Data
-    environment:
-      - JWT_ENABLED=true
-      - JWT_SECRET=SuperSecretKey
-      - JWT_HEADER=Authorization
-      - JWT_ISSUER=https://office.j4nis05.ch
-      - JWT_AUDIENCE=onlyoffice-community-server
-      - JWT_EXP_DELTA_SECONDS=36000
-
   synapse:
     image: matrixdotorg/synapse:latest
     container_name: synapse
