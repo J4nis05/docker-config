@@ -46,4 +46,5 @@ Backup of my Docker Compose Files
 
 
 ## To-Do
+* Switch to Volumes
 * Recreate Matrix Stack
