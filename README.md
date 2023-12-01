@@ -47,4 +47,3 @@ Backup of my Docker Compose Files
 
 ## To-Do
 * Recreate Matrix Stack
-* Switch Onlyoffice Community Server into Production
