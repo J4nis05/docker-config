@@ -49,4 +49,5 @@ Backup of my Docker Compose Files
 * Switch to Volumes
 * Recreate Matrix Stack
 * Fix Double synapse issue
+* Remove SMB Web Portal
 * Update Diagram
