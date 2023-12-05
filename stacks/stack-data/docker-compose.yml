@@ -9,15 +9,6 @@ services:
       - /docker/ext/data/docker/pingvin/data:/opt/app/backend/data
       - /docker/ext/data/docker/pingvin/data/images:/opt/app/frontend/public/img
 
-  smb-web:
-    image: filebrowser/filebrowser
-    container_name: smb-web
-    restart: unless-stopped
-    volumes:
-      - /docker/ext/data:/srv/samba
-      - /docker/ext/smb:/srv/qbittorrent
-      - /docker/ext/qbit:/srv/data
-
 networks:
   default:
     external: true
