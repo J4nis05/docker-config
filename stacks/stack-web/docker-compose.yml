@@ -15,7 +15,7 @@ services:
 
   blazor.cryotea.com:
     image: j4nis05/blazor.cryotea.com
-    container_name: cryotea.com
+    container_name: blazor.cryotea.com
     restart: always
 
   j4nis05.ch:
