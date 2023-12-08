@@ -13,6 +13,11 @@ services:
     container_name: cryotea.com
     restart: always
 
+  blazor.cryotea.com:
+    image: j4nis05/blazor.cryotea.com
+    container_name: cryotea.com
+    restart: always
+
   j4nis05.ch:
     image: j4nis05/j4nis05.ch
     container_name: j4nis05.ch
