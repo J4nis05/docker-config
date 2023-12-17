@@ -8,8 +8,8 @@ Backup of my Docker Compose Files
 - [X] qBittorrent          [qbit.j4nis05.ch](https://qbit.j4nis05.ch)
 
 ### Chat
-- [X] Synapse Server       [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
-- [X] Synapse Database
+- [ ] Synapse Server       [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
+- [ ] Synapse Database
 
 ### Data
 - [X] Pingvin Share        [send.j4nis05.ch](https://send.j4nis05.ch)
@@ -31,7 +31,7 @@ Backup of my Docker Compose Files
 
 ### Tools
 - [X] Archive Team Warrior [warrior.j4nis05.ch](https://warrior.j4nis05.ch)
-- [X] Gitea                [git.j4nis05.ch](https://git.j4nis05.ch)
+- [ ] Gitea                [git.j4nis05.ch](https://git.j4nis05.ch)
 - [X] Vaultwarden          [vault.j4nis05.ch](https://vault.j4nis05.ch)
 
 ### Web
@@ -43,4 +43,5 @@ Backup of my Docker Compose Files
 
 
 ## To-Do
-
+* Fix Gitea Installation
+* Steup Synapse Server
