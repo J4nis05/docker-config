@@ -45,3 +45,4 @@ Backup of my Docker Compose Files
 ## To-Do
 * Fix Gitea Installation
 * Setup Synapse Server
+* Find New Backup Solution
