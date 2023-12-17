@@ -44,4 +44,4 @@ Backup of my Docker Compose Files
 
 ## To-Do
 * Fix Gitea Installation
-* Steup Synapse Server
+* Setup Synapse Server
