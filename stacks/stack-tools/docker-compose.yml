@@ -18,59 +18,27 @@ services:
     container_name: gitea
     restart: always
     volumes:
-      - ./data/gitea/data:/data
-      - ./data/gitea/config:/etc/gitea
+      - gitea_data:/data
+      - gitea_config:/etc/gitea
     environment:
       - USER_UID=1000
       - USER_GID=1000
-
-  homeassistant:
-    image: ghcr.io/home-assistant/home-assistant:stable
-    container_name: homeassistant
-    restart: always
-    privileged: true
-    volumes:
-      - ./data/home-assistant:/config
-      - /etc/localtime:/etc/localtime:ro
-
-  meshcentral:
-    image: typhonragewind/meshcentral
-    container_name: meshcentral
-    restart: always
-    volumes:
-      - ./data/meshcentral/data:/opt/meshcentral/meshcentral-data
-      - ./data/meshcentral/user_files:/opt/meshcentral/meshcentral-files
-    environment:
-      - HOSTNAME=mesh.j4nis05.ch
-      - REVERSE_PROXY=mesh.j4nis05.ch
-      - REVERSE_PROXY_TLS_PORT=
-      - IFRAME=false
-      - ALLOW_NEW_ACCOUNTS=false
-      - WEBRTC=false
-
-  synapse:
-    image: matrixdotorg/synapse:latest
-    container_name: synapse
-    restart: always
-    volumes:
-      - ./data/synapse:/data
-    environment:
-      VIRTUAL_HOST: "j4nis05.ch"
-      VIRTUAL_PORT: 8008
-      SYNAPSE_SERVER_NAME: "j4nis05.ch"
-      SYNAPSE_REPORT_STATS: "yes"
 
   vaultwarden:
     image: vaultwarden/server:latest
     container_name: vaultwarden
     restart: always
     volumes:
-      - ./data/vaultwarden:/data
+      - vaultwarden_data:/data
     environment:
       WEBSOCKET_ENABLED: "true"
-
 
 networks:
   default:
     external: true
     name: proxynet
+
+volumes:
+  gitea_data:
+  gitea_config:
+  vaultwarden_data:

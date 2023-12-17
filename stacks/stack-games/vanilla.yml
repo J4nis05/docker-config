@@ -9,4 +9,4 @@ services:
       - 25565:41340
       - 25575:25575
     volumes:
-      - ./data:/minecraft
+      - /docker/vanilla:/minecraft

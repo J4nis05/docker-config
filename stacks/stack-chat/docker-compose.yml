@@ -8,7 +8,7 @@ services:
     depends_on:
       - synapse_db
     volumes:
-      - ./data/synapse:/data
+      - synapse_data:/data
     environment:
       - SYNAPSE_CONFIG_PATH=/data/homeserver.yaml
 
@@ -17,7 +17,7 @@ services:
     container_name: synapse_db
     restart: always
     volumes:
-      - ./data/synapse_db:/var/lib/postgresql/data
+      - synapse_db_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=synapse
       - POSTGRES_PASSWORD=pass
@@ -27,3 +27,7 @@ networks:
   default:
     external: true
     name: proxynet
+
+volumes:
+  synapse_data:
+  synapse_db_data:

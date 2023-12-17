@@ -15,8 +15,8 @@ services:
       - 8118:8118
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./data/config:/config
-      - ./data/theme:/theme
+      - qbit_config:/config
+      - qbit_theme:/theme
       - /docker/ext/qbit:/data
     environment:
       - VPN_ENABLED=yes
@@ -33,3 +33,7 @@ networks:
   default:
     external: true
     name: proxynet
+
+volumes:
+  qbit_config:
+  qbit_theme:
