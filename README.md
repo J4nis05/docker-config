@@ -31,7 +31,7 @@ Backup of my Docker Compose Files
 
 ### Tools
 - [X] Archive Team Warrior [warrior.j4nis05.ch](https://warrior.j4nis05.ch)
-- [ ] Gitea                [git.j4nis05.ch](https://git.j4nis05.ch)
+- [X] Gitea                [git.j4nis05.ch](https://git.j4nis05.ch)
 - [X] Vaultwarden          [vault.j4nis05.ch](https://vault.j4nis05.ch)
 
 ### Web
@@ -43,6 +43,5 @@ Backup of my Docker Compose Files
 
 
 ## To-Do
-* Fix Gitea Installation
 * Setup Synapse Server
 * Note: Do not Backup. Will just cause immense amounts of Pure unfiltered Pain
