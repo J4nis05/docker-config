@@ -25,6 +25,7 @@ Backup of my Docker Compose Files
 - [X] Nextcloud Database
 
 ### Services
+- [X] Homarr               [homarr.j4nis05.ch](https://homarr.j4nis05.ch)
 - [X] Nginx Proxy Manager  [proxy.j4nis05.ch](https://proxy.j4nis05.ch)
 - [X] Portainer            [docker.j4nis05.ch](https://docker.j4nis05.ch)
 - [X] Watchtower
