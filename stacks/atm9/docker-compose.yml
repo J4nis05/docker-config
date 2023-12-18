@@ -7,7 +7,7 @@ services:
     restart: always
     command: bash -c /minecraft/startserver.sh
     ports:
-      - "25566:25565"
-      - "25576:25575"
+      - 25566:25565   # Port for Server Access
+      - 25576:25575   # Port for Remote Console Access
     volumes:
       - /docker/atm9:/minecraft

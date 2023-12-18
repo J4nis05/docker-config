@@ -7,7 +7,7 @@ services:
     restart: always
     command: java -Xmx4096M -Xms4096M -jar /minecraft/server.jar nogui
     ports:
-      - 25565:41340
-      - 25575:25575
+      - 25565:41340   # Port for Server Access
+      - 25575:25575   # Port for Remote Console Access
     volumes:
       - /docker/vanilla:/minecraft

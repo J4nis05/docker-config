@@ -10,9 +10,8 @@ services:
     devices:
       - /dev/net/tun
     ports:
-      - 6881:6881
-      - 6881:6881/udp
-      - 8118:8118
+      - 6881:6881       # Port Required for BitTorrent
+      - 6881:6881/udp   # Port Required for BitTorrent
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - qbit_config:/config
