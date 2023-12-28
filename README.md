@@ -1,7 +1,7 @@
 # docker-config
 ---
 Backup of my Docker Compose Files
-a
+
 
 ## Stacks
 ### Arr
@@ -17,6 +17,11 @@ a
 ### Games
 - [X] Minecraft Vanilla
 - [X] Minecraft ATM9
+
+### Mail
+- [ ] 
+- [ ] --> https://www.libe.net/docker-mailserver
+- [ ] 
 
 ### Media
 - [X] Jellyfin             [jelly.j4nis05.ch](https://jelly.j4nis05.ch)
