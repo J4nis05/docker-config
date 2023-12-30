@@ -19,9 +19,7 @@ Backup of my Docker Compose Files
 - [X] Minecraft ATM9
 
 ### Mail
-- [ ] 
-- [ ] --> https://www.libe.net/docker-mailserver
-- [ ] 
+- [ ] --> Guide: https://www.libe.net/docker-mailserver
 
 ### Media
 - [X] Jellyfin             [jelly.j4nis05.ch](https://jelly.j4nis05.ch)
