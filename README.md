@@ -48,4 +48,3 @@ Backup of my Docker Compose Files
 
 ## To-Do
 * Setup Synapse Server
-* Create Backup Using Portainer API
