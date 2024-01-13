@@ -1,7 +1,27 @@
 version: "3.8"
 
 services:
-  
+  mailserver:
+    image: docker.io/mailserver/docker-mailserver:latest
+    hostname: ${HOSTNAME}
+    domainname: ${DOMAINNAME}
+    container_name: ${CONTAINER_NAME}
+    env_file: mailserver.env
+    ports:
+      - 25:25
+      - 143:143
+      - 587:587
+      - 993:993
+      - 4190:4190
+    volumes:
+      - ./docker-data/dms/maildata:/var/mail
+      - ./docker-data/dms/mailstate:/var/mail-state
+      - ./docker-data/dms/maillogs:/var/log/mail
+      - ./docker-data/dms/config/:/tmp/docker-mailserver/
+      - ./docker-data/dms/cron/sa-learn:/etc/cron.d/sa-learn
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+    cap_add: [ "NET_ADMIN", "SYS_PTRACE" ]
   
 networks:
   default:
