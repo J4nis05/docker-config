@@ -29,7 +29,7 @@ services:
     depends_on:
       - nextcloud-db
     volumes:
-      - /docker/ext/data/docker/nextcloud:/var/www/html
+      - /mnt/data/docker/nextcloud:/var/www/html
     environment:
       - MYSQL_HOST=nextcloud-db
       - MYSQL_DATABASE=nextcloud

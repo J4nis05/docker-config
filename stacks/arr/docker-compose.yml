@@ -16,7 +16,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - qbit_config:/config
       - qbit_theme:/theme
-      - /docker/ext/qbit:/data
+      - /mnt/qbit:/data
     environment:
       - VPN_ENABLED=yes
       - VPN_PROV=mullvad

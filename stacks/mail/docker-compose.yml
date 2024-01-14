@@ -6,7 +6,7 @@ services:
     hostname: mail.j4nis05.ch
     domainname: j4nis05.ch
     container_name: mailserver
-    env_file: /docker/mail/mailserver.env
+    # env_file: mailserver.env
     ports:
       - 25:25
       - 143:143
@@ -20,10 +20,6 @@ services:
       - /docker/mail/dms/config/:/tmp/docker-mailserver/
       - /docker/mail/dms/cron/sa-learn:/etc/cron.d/sa-learn
       - /etc/localtime:/etc/localtime:ro
+      - /etc/letsencrypt:/etc/letsencrypt
     restart: always
     cap_add: [ "NET_ADMIN", "SYS_PTRACE" ]
-  
-networks:
-  default:
-    external: true
-    name: proxynet
