@@ -17,6 +17,7 @@ Backup of my Docker Compose Files
 ### Games
 - [X] Minecraft Vanilla
 - [X] Minecraft ATM9
+- [X] Satisfactory Server
 
 ### Mail
 - [ ] --> Guide: https://www.libe.net/docker-mailserver
