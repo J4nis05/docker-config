@@ -49,3 +49,5 @@ Backup of my Docker Compose Files
 
 ## To-Do
 * Setup Synapse Server
+* Setup Mail Server
+--> DNS Entries
