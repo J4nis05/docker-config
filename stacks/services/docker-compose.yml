@@ -16,16 +16,6 @@ services:
       - TZ=Europe/Zurich
       - DISABLE_IPV6=true
 
-  homarr:
-    image: ghcr.io/ajnart/homarr:latest
-    container_name: homarr
-    restart: unless-stopped
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
-      - homarr_configs:/app/data/configs
-      - homarr_icons:/app/public/icons
-      - homarr_data:/data
-
   watchtower:
     image: containrrr/watchtower
     container_name: watchtower
