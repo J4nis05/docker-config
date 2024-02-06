@@ -48,7 +48,6 @@ Backup of my Docker Compose Files
 
 
 ## To-Do
-* Fix Gitea
 * Setup Synapse Server
 * Setup Mail Server
 --> DNS Entries
