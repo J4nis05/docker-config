@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  qbittorrent:
+    image: binhex/arch-qbittorrentvpn
+    container_name: qbit
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    ports:
+      - 6881:6881       # Port Required for BitTorrent
+      - 6881:6881/udp   # Port Required for BitTorrent
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - qbit_config:/config
+      - qbit_theme:/theme
+      - /mnt/qbit:/data
+    environment:
+      - VPN_ENABLED=yes
+      - VPN_PROV=mullvad
+      - VPN_CLIENT=openvpn
+      - STRICT_PORT_FORWARD=yes
+      - ENABLE_PRIVOXY=no
+      - WEBUI_PORT=8080
+      - LAN_NETWORK=192.168.1.0/24
+      - PUID=1000
+      - GUID=1000
+
+networks:
+  default:
+    external: true
+    name: proxynet
+
+volumes:
+  qbit_config:
+  qbit_theme:

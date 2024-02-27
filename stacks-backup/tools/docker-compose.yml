@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  archiveTeamWarrior:
+    image: atdr.meo.ws/archiveteam/warrior-dockerfile
+    container_name: archiveTeamWarrior
+    restart: always
+    hostname: archiveTeamWarrior
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
+    environment:
+      - DOWNLOADER=J4nis05
+      - SELECTED_PROJECT=auto
+      - CONCURRENT_ITEMS=5
+
+  gitea:
+    image: gitea/gitea:latest
+    container_name: gitea
+    restart: always
+    volumes:
+      - gitea_data:/data
+      - gitea_config:/etc/gitea
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: always
+    volumes:
+      - vaultwarden_data:/data
+    environment:
+      WEBSOCKET_ENABLED: "true"
+
+networks:
+  default:
+    external: true
+    name: proxynet
+
+volumes:
+  gitea_data:
+  gitea_config:
+  vaultwarden_data:

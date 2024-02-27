@@ -1,50 +1,16 @@
 version: "3.8"
 
 services:
-  jellyfin:
-    image: jellyfin/jellyfin:latest
-    container_name: jellyfin
+  example:
+    image: 
+    container_name: 
     restart: always
+    ports:
+      - 
     volumes:
-      - jellyfin_config:/config
-      - jellyfin_cache:/cache
-      - /nas:/media
-
-  nextcloud-db:
-    image: mariadb:latest
-    container_name: nextcloud-db
-    restart: always
-    volumes:
-      - nextcloud_db_data:/var/lib/mysql
+      - 
     environment:
-      - MYSQL_ROOT_PASSWORD=pass
-      - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=pass
-
-  nextcloud:
-    image: nextcloud:latest
-    container_name: nextcloud
-    restart: always
-    depends_on:
-      - nextcloud-db
-    volumes:
-      - /mnt/data/docker/nextcloud:/var/www/html
-    environment:
-      - MYSQL_HOST=nextcloud-db
-      - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=pass
-
-  podgrab:
-    image: akhilrex/podgrab
-    container_name: podgrab
-    restart: always
-    volumes:
-      - podgrab_config:/config
-      - /nas/media/audio/podcasts:/assets
-    environment:
-      - CHECK_FREQUENCY=240
+      - 
 
 networks:
   default:
@@ -52,7 +18,4 @@ networks:
     name: proxynet
 
 volumes:
-  jellyfin_config:
-  jellyfin_cache:
-  nextcloud_db_data:
-  podgrab_config:
+  

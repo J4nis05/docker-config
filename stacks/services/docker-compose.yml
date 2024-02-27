@@ -1,27 +1,16 @@
 version: "3.8"
 
 services:
-  nginx:
-    image: jc21/nginx-proxy-manager:latest
-    container_name: nginx
+  example:
+    image: 
+    container_name: 
     restart: always
     ports:
-      - 80:80     # HTTP Redirect Port
-      - 443:443   # HTTPS Redirect Port
-      - 81:81     # Management Port
+      - 
     volumes:
-      - nginx_data:/data
-      - nginx_letsencrypt:/etc/letsencrypt
+      - 
     environment:
-      - TZ=Europe/Zurich
-      - DISABLE_IPV6=true
-
-  watchtower:
-    image: containrrr/watchtower
-    container_name: watchtower
-    restart: always
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - 
 
 networks:
   default:
@@ -29,8 +18,4 @@ networks:
     name: proxynet
 
 volumes:
-  nginx_data:
-  nginx_letsencrypt:
-  homarr_configs:
-  homarr_icons:
-  homarr_data:
+  
