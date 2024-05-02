@@ -4,19 +4,34 @@ Backup of my Docker Compose Files
 
 
 ## Stacks
+| Name             | Link                                                |
+| ---------------- | --------------------------------------------------- |
+| `arr`            | [Compose](stacks/arr/docker-compose.yml)            |
+| `mc-atm9`        | [Compose](stacks/mc-atm9/docker-compose.yml)        |
+| `mc-vanilla`     | [Compose](stacks/mc-vanilla/docker-compose.yml)     |
+| `satisfactory-1` | [Compose](stacks/satisfactory-1/docker-compose.yml) |
+| `satisfactory-2` | [Compose](stacks/satisfactory-2/docker-compose.yml) |
+| `mail`           | [Compose](stacks/mail/docker-compose.yml)           |
+| `matrix`         | [Compose](stacks/matrix/docker-compose.yml)         |
+| `nextcloud`      | [Compose](stacks/nextcloud/docker-compose.yml)      |
+| `web`            | [Compose](stacks/web/docker-compose.yml)            |
+| `portainer`      | [Compose](stacks/portainer/docker-compose.yml)      |
+| `services`       | [Compose](stacks/services/docker-compose.yml)       |
+| `tools`          | [Compose](stacks/tools/docker-compose.yml)          |
+
 ### Arr (`arr`)
 - [X] qBittorrent           [qbit.j4nis05.ch](https://qbit.j4nis05.ch)
 - [X] Jellyfin              [jelly.j4nis05.ch](https://jelly.j4nis05.ch)
 - [ ] Jellyseer
 
-### Games (`mc-atm9`, `mc-vanilla`, `satisfactory`, `satisfactory-wohnzimmer`)
+### Games (`mc-atm9`, `mc-vanilla`, `satisfactory-1`, `satisfactory-2`)
 - [X] Minecraft Vanilla
 - [X] Minecraft ATM9
 - [ ] Satisfactory 1
 - [X] Satisfactory 2
 
 ### Mail (`mail`)
-- [ ] Mail Server           --> Guide: https://www.libe.net/docker-mailserver
+- [ ] Mail Server           Guide: https://www.libe.net/docker-mailserver
 
 ### Matrix (`matrix`)
 - [ ] Synapse Server        [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
@@ -46,8 +61,38 @@ Backup of my Docker Compose Files
 - [X] Docker Registry       [registry.j4nis05.ch](https://registry.j4nis05.ch)
 - [X] Archive Team Warrior  [warrior.j4nis05.ch](https://warrior.j4nis05.ch)
 
+
 ## To-Do
 * Setup Synapse Server
 * Setup Mail Server
 * Setup Jellyseer
 * Remove `Podgrab`, `Homarr`, `Watchtower`
+
+
+## Compose
+> Structure and order of elements in a Compose file
+
+```yaml
+version: "3.8"
+
+services:
+  example:
+    image: 
+    container_name: 
+    restart: always
+    ports:
+      - 
+    volumes:
+      - 
+    environment:
+      - 
+    # Any Additional Instructions at the End
+
+networks:
+  default:
+    external: true
+    name: proxynet
+
+volumes:
+
+```
