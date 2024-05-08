@@ -4,21 +4,21 @@ Backup of my Docker Compose Files
 
 
 ## Stacks
-| No | Name             | Link                                                |
-| -- | ---------------- | --------------------------------------------------- |
-| 01 | `arr`            | [Compose](stacks/arr/docker-compose.yml)            |
-| 02 | `mc-atm9`        | [Compose](stacks/mc-atm9/docker-compose.yml)        |
-| 03 | `mc-vanilla`     | [Compose](stacks/mc-vanilla/docker-compose.yml)     |
-| 04 | `satisfactory-1` | [Compose](stacks/satisfactory-1/docker-compose.yml) |
-| 05 | `satisfactory-2` | [Compose](stacks/satisfactory-2/docker-compose.yml) |
-| 06 | `satisfactory-3` | [Compose](stacks/satisfactory-3/docker-compose.yml) |
-| 07 | `mail`           | [Compose](stacks/mail/docker-compose.yml)           |
-| 08 | `matrix`         | [Compose](stacks/matrix/docker-compose.yml)         |
-| 09 | `nextcloud`      | [Compose](stacks/nextcloud/docker-compose.yml)      |
-| 10 | `web`            | [Compose](stacks/web/docker-compose.yml)            |
-| 11 | `portainer`      | [Compose](stacks/portainer/docker-compose.yml)      |
-| 12 | `services`       | [Compose](stacks/services/docker-compose.yml)       |
-| 13 | `tools`          | [Compose](stacks/tools/docker-compose.yml)          |
+| No | Name             | Link                                                           |
+| -- | ---------------- | -------------------------------------------------------------- |
+| 01 | `arr`            | [docker-compose.yml](stacks/arr/docker-compose.yml)            |
+| 02 | `mc-atm9`        | [docker-compose.yml](stacks/mc-atm9/docker-compose.yml)        |
+| 03 | `mc-vanilla`     | [docker-compose.yml](stacks/mc-vanilla/docker-compose.yml)     |
+| 04 | `satisfactory-1` | [docker-compose.yml](stacks/satisfactory-1/docker-compose.yml) |
+| 05 | `satisfactory-2` | [docker-compose.yml](stacks/satisfactory-2/docker-compose.yml) |
+| 06 | `satisfactory-3` | [docker-compose.yml](stacks/satisfactory-3/docker-compose.yml) |
+| 07 | `mail`           | [docker-compose.yml](stacks/mail/docker-compose.yml)           |
+| 08 | `matrix`         | [docker-compose.yml](stacks/matrix/docker-compose.yml)         |
+| 09 | `nextcloud`      | [docker-compose.yml](stacks/nextcloud/docker-compose.yml)      |
+| 10 | `web`            | [docker-compose.yml](stacks/web/docker-compose.yml)            |
+| 11 | `portainer`      | [docker-compose.yml](stacks/portainer/docker-compose.yml)      |
+| 12 | `services`       | [docker-compose.yml](stacks/services/docker-compose.yml)       |
+| 13 | `tools`          | [docker-compose.yml](stacks/tools/docker-compose.yml)          |
 
 ### Arr (`arr`)
 - [ ] qBittorrent           [qbit.j4nis05.ch](https://qbit.j4nis05.ch)
@@ -30,6 +30,7 @@ Backup of my Docker Compose Files
 - [ ] Minecraft ATM9
 - [ ] Satisfactory 1
 - [ ] Satisfactory 2
+- [ ] Satisfactory 3
 
 ### Mail (`mail`)
 - [ ] Mail Server           Guide: https://www.libe.net/docker-mailserver
@@ -67,7 +68,6 @@ Backup of my Docker Compose Files
 * Setup Synapse Server
 * Setup Mail Server
 * Setup Jellyseer
-* Remove `Podgrab`, `Homarr`, `Watchtower`
 
 
 ## Compose
