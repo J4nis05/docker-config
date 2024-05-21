@@ -3,24 +3,24 @@
 # Use 'blkid' to print the universally unique identifier for a
 # device; this may be used with UUID= as a more robust way to name devices
 # that works even if disks are added and removed. See fstab(5).
-#
 # systemd generates mount units based on this file, see systemd.mount(5).
 # Please run 'systemctl daemon-reload' after making changes here.
 #
-# <file system>                            <mount point>       <type>  <options>           <dump><pass>
+# <file system>                            <mount point>       <type>  <options>           <dump>  <pass>
 # / was on /dev/nvme0n1p2 during installation
-UUID=d0eddc89-e572-4df7-8ebd-63314ddb555f   /                   ext4    errors=remount-ro   0     1
+UUID=d0eddc89-e572-4df7-8ebd-63314ddb555f   /                   ext4    errors=remount-ro   0       1
 # /boot/efi was on /dev/nvme0n1p1 during installation
-UUID=FE01-6DBE                              /boot/efi           vfat    umask=0077          0     1
+UUID=FE01-6DBE                              /boot/efi           vfat    umask=0077          0       1
 # swap was on /dev/nvme0n1p3 during installation
-UUID=23735259-a5d0-4322-ad40-649060ae4e4b   none                swap    sw                  0     0
+UUID=23735259-a5d0-4322-ad40-649060ae4e4b   none                swap    sw                  0       0
 
 # External Docker Drives: data, smb, qbit
-UUID=ca758ee2-5a71-479b-b100-21870d7fcd1a   /mnt/data           ext4     defaults           0     0
-UUID=553c8fe7-6cc0-4351-9c4b-bcb1b1adfbb3   /mnt/qbit           ext4     defaults           0     0
-UUID=4a731b9f-b7c3-403f-82d4-c82a8a728bba   /mnt/smb            ext4     defaults           0     0
+UUID=ca758ee2-5a71-479b-b100-21870d7fcd1a   /mnt/data           ext4     defaults           0       0
+UUID=553c8fe7-6cc0-4351-9c4b-bcb1b1adfbb3   /mnt/qbit           ext4     defaults           0       0
+UUID=4a731b9f-b7c3-403f-82d4-c82a8a728bba   /mnt/smb            ext4     defaults           0       0
 
 # Network Drives
-//192.168.1.XY/photos   /nas/photos         cifs    uid=0,credentials=/nas/nas-credentials  0     0
-//192.168.1.XY/media    /nas/media          cifs    uid=0,credentials=/nas/nas-credentials  0     0
-//192.168.1.XY/anime    /nas/anime          cifs    uid=0,credentials=/nas/nas-credentials  0     0
+//192.168.1.97/photos   /nas/photos         cifs    uid=0,credentials=/nas/nas-credentials  0       0
+//192.168.1.97/media    /nas/media          cifs    uid=0,credentials=/nas/nas-credentials  0       0
+//192.168.1.97/anime    /nas/anime          cifs    uid=0,credentials=/nas/nas-credentials  0       0
+//192.168.1.97/backup   /nas/backups        cifs    uid=0,credentials=/nas/nas-credentials  0       0

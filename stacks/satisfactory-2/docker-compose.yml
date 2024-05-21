@@ -1,17 +1,17 @@
-# Satisfactory-1 (Ralul)
+# Satisfactory-2 (Wohnzimmer)
 version: "3.8"
 
 services:
   example:
     image: wolveix/satisfactory-server
-    container_name: satisfactory-1
+    container_name: satisfactory-2
     restart: always
     ports:
       - 7777:7777/udp   # Game Port
       - 15000:15000/udp # Beacon Port
       - 15777:15777/udp # Query Port
     volumes:
-      - /mnt/data/gameserver/satisfacotry1/config:/config
+      - /mnt/data/gameserver/satisfacotry2/config:/config
     environment:
       - MAXPLAYERS=4
       - PGID=1000

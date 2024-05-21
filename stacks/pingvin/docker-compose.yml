@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  example:
+    image: stonith404/pingvin-share
+    container_name: pingvin
+    restart: always
+    volumes:
+      - /mnt/data/docker/pingvin/data:/opt/app/backend/data
+      - /mnt/data/docker/pingvin/data/images:/opt/app/frontend/public/img
+
+networks:
+  default:
+    external: true
+    name: proxynet

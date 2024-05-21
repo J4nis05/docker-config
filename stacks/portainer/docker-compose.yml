@@ -1,16 +1,16 @@
+# Portainer
 version: "3.8"
 
 services:
   example:
-    image: 
-    container_name: 
+    image: portainer/portainer-ce
+    container_name: portainer
     restart: always
     ports:
-      - 
+      - 9000:9000   # HTTP Port
     volumes:
-      - 
-    environment:
-      - 
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
 
 networks:
   default:
@@ -18,4 +18,4 @@ networks:
     name: proxynet
 
 volumes:
-  
+  portainer_data:
