@@ -1,5 +1,7 @@
+# Teamspeak 5 Server
 version: "3.8"
 name: "ts-services"
+
 
 services:
   example:
@@ -13,10 +15,12 @@ services:
     environment:
       - 
 
+
 networks:
   default:
     external: true
     name: proxynet
+
 
 volumes:
   

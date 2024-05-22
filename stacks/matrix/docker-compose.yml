@@ -1,21 +1,45 @@
+# Synapse Server
+# https://linuxhandbook.com/install-matrix-synapse-docker/#step-2-set-up-synapse
 version: "3.8"
+name: "matrix"
+
 
 services:
-  example:
-    image: 
-    container_name: 
+  matrix:
+    image: matrixdotorg/synapse
+    container_name: matrix
     restart: always
-    ports:
-      - 
+    depends_on:
+      - matrix-db
     volumes:
-      - 
+      # - matrix_data:/data
+      - ./data:/data
     environment:
-      - 
+      - VIRTUAL_HOST: matrix.j4nis05.ch
+      - VIRTUAL_PORT: 8008
+      - LETSENCRYPT_HOST: matrix.j4nis05.ch
+      - SYNAPSE_SERVER_NAME: matrix.j4nis05.ch
+      - SYNAPSE_REPORT_STATS: "no"
+  
+  matrix-db:
+    image: postgres
+    container_name: matrix-db
+    restart: always
+    volumes:
+      - matrix_db_data:/var/lib/postgresql/
+    environment:
+      - POSTGRES_PASSWORD: pass
+      - POSTGRES_USER: user
+      - POSTGRES_DB: synapse
+      - POSTGRES_INITDB_ARGS: "--encoding='UTF8' --lc-collate='C' --lc-ctype='C'"
+
 
 networks:
   default:
     external: true
     name: proxynet
 
+
 volumes:
-  
+  matrix_data:
+  matrix_db_data:

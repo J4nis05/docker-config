@@ -1,4 +1,7 @@
+# E-mail Server
 version: "3.8"
+name: "mail"
+
 
 services:
   example:
@@ -12,10 +15,12 @@ services:
     environment:
       - 
 
+
 networks:
   default:
     external: true
     name: proxynet
+
 
 volumes:
   

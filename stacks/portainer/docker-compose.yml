@@ -1,8 +1,10 @@
 # Portainer
 version: "3.8"
+name: "portainer"
+
 
 services:
-  example:
+  portainer:
     image: portainer/portainer-ce
     container_name: portainer
     restart: always
@@ -12,10 +14,12 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
 
+
 networks:
   default:
     external: true
     name: proxynet
+
 
 volumes:
   portainer_data:

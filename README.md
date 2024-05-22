@@ -7,25 +7,27 @@ Backup of my Docker Compose Files
 | No | Name             | Link                                                           |
 | -- | ---------------- | -------------------------------------------------------------- |
 | 01 | `arr`            | [docker-compose.yml](stacks/arr/docker-compose.yml)            |
-| 02 | `mc-vanilla`     | [docker-compose.yml](stacks/mc-vanilla/docker-compose.yml)     |
-| 03 | `satisfactory-1` | [docker-compose.yml](stacks/satisfactory-1/docker-compose.yml) |
-| 04 | `satisfactory-2` | [docker-compose.yml](stacks/satisfactory-2/docker-compose.yml) |
-| 05 | `satisfactory-3` | [docker-compose.yml](stacks/satisfactory-3/docker-compose.yml) |
-| 06 | `mail`           | [docker-compose.yml](stacks/mail/docker-compose.yml)           |
-| 07 | `matrix`         | [docker-compose.yml](stacks/matrix/docker-compose.yml)         |
-| 08 | `nextcloud`      | [docker-compose.yml](stacks/nextcloud/docker-compose.yml)      |
-| 09 | `web`            | [docker-compose.yml](stacks/web/docker-compose.yml)            |
-| 10 | `portainer`      | [docker-compose.yml](stacks/portainer/docker-compose.yml)      |
-| 11 | `services`       | [docker-compose.yml](stacks/services/docker-compose.yml)       |
-| 12 | `tools`          | [docker-compose.yml](stacks/tools/docker-compose.yml)          |
-| 13 | `vaultwarden`    |                                                                |
-| 14 | `pingvin`        |                                                                |
-| 15 | `gitea`          |                                                                |
+| 02 | `gitea`          | [docker-compose.yml](stacks/gitea/docker-compose.yml)          |
+| 03 | `mail`           | [docker-compose.yml](stacks/mail/docker-compose.yml)           |
+| 04 | `matrix`         | [docker-compose.yml](stacks/matrix/docker-compose.yml)         |
+| 05 | `mc-vanilla`     | [docker-compose.yml](stacks/mc-vanilla/docker-compose.yml)     |
+| 06 | `nextcloud`      | [docker-compose.yml](stacks/nextcloud/docker-compose.yml)      |
+| 07 | `pingvin`        | [docker-compose.yml](stacks/pingvin/docker-compose.yml)        |
+| 08 | `portainer`      | [docker-compose.yml](stacks/portainer/docker-compose.yml)      |
+| 09 | `satisfactory-1` | [docker-compose.yml](stacks/satisfactory-1/docker-compose.yml) |
+| 10 | `satisfactory-2` | [docker-compose.yml](stacks/satisfactory-2/docker-compose.yml) |
+| 11 | `satisfactory-3` | [docker-compose.yml](stacks/satisfactory-3/docker-compose.yml) |
+| 12 | `services`       | [docker-compose.yml](stacks/services/docker-compose.yml)       |
+| 13 | `tools`          | [docker-compose.yml](stacks/tools/docker-compose.yml)          |
+| 13 | `ts5`            | [docker-compose.yml](stacks/ts5/docker-compose.yml)            |
+| 14 | `vaultwarden`    | [docker-compose.yml](stacks/vaultwarden/docker-compose.yml)    |
+| 15 | `web`            | [docker-compose.yml](stacks/web/docker-compose.yml)            |
 
 ### Arr (`arr`)
-* [ ] qBittorrent           [qbit.j4nis05.ch](https://qbit.j4nis05.ch)
-* [ ] Jellyfin              [jelly.j4nis05.ch](https://jelly.j4nis05.ch)
-* [ ] Jellyseer
+* [ ] qBittorrent:          [qbit.j4nis05.ch](https://qbit.j4nis05.ch)
+* [ ] Jellyfin:             [jelly.j4nis05.ch](https://jelly.j4nis05.ch)
+* [ ] Jellyseer:            [request.j4nis05.ch](https://request.j4nis05.ch)
+* [ ] Podgrab:              [podgrab.j4nis05.ch](https://podgrab.j4nis05.ch)
 
 ### Games (`mc-vanilla`, `satisfactory-1/3`)
 * [ ] Minecraft Vanilla
@@ -33,57 +35,69 @@ Backup of my Docker Compose Files
 * [ ] Satisfactory 2
 * [ ] Satisfactory 3
 
+### Git (`gitea`)
+* [ ] Gitea:                [git.j4nis05.ch](https://git.j4nis05.ch)
+* [ ] Gitea Database
+
 ### Mail (`mail`)
-* [ ] Mail Server           Guide: https://www.libe.net/docker-mailserver
+* [ ] Mail Server:          [Guide](https://www.libe.net/docker-mailserver)
 
 ### Matrix (`matrix`)
-* [ ] Synapse Server        [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
+* [ ] Synapse Server:       [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
 * [ ] Synapse Database
 
 ### Nextcloud (`nextcloud`)
-* [ ] Nextcloud             [nas.j4nis05.ch](https://nas.j4nis05.ch)
+* [ ] Nextcloud:            [nas.j4nis05.ch](https://nas.j4nis05.ch)
 * [ ] Nextcloud Database
 
 ### Personal Websites (`web`)
-* [ ] File Backend          [admin.j4nis05.ch](https://admin.j4nis05.ch)
 * [ ] Cryotea.com:          [cryotea.com](http://cryotea.com)
 * [ ] Startpage:            [start.j4nis05.ch](https://start.j4nis05.ch)
-* [ ] Redirect to WWW:      [j4nis05.ch](https://j4nis05.ch)
-* [ ] WWW.J4nis05.ch:       [www.j4nis05.ch](https://www.j4nis05.ch)
+* [ ] Personal Website:     [www.j4nis05.ch](https://www.j4nis05.ch)
+
+### Pingvin Share (`pingvin`)
+* [ ] Pingvin Share:        [send.j4nis05.ch](https://send.j4nis05.ch)
 
 ### Portainer (`portainer`)
-* [ ] Portainer             [docker.j4nis05.ch](https://docker.j4nis05.ch)
+* [ ] Portainer:            [docker.j4nis05.ch](https://docker.j4nis05.ch)
 
 ### Services (`services`)
-* [ ] Nginx Proxy Manager   [proxy.j4nis05.ch](https://proxy.j4nis05.ch)
+* [ ] Nginx Proxy Manager:  [proxy.j4nis05.ch](https://proxy.j4nis05.ch)
+
+### Teamspeak 5 Server (`ts5`)
+* [ ] 
 
 ### Tools (`tools`)
-* [ ] Gitea                 [git.j4nis05.ch](https://git.j4nis05.ch)
-* [ ] Vaultwarden           [vault.j4nis05.ch](https://vault.j4nis05.ch)
-* [ ] Pingvin Share         [send.j4nis05.ch](https://send.j4nis05.ch)
-* [ ] Archive Team Warrior  [warrior.j4nis05.ch](https://warrior.j4nis05.ch)
+* [ ] Archive Team Warrior: [warrior.j4nis05.ch](https://warrior.j4nis05.ch)
+
+### Vaultwarden (`vaultwarden`)
+* [ ] Vaultwarden:          [vault.j4nis05.ch](https://vault.j4nis05.ch)
+* [ ] Vaultwarden Database
 
 
 ## To-Do
-* Setup Synapse Server
-* Setup Mail Server
-* Setup Jellyseer
-* Create new Stacks
+* [ ] Setup Synapse Server
+* [ ] Setup Mail Server
+* [ ] Setup Jellyseer
+* [ ] Setup Teamspeak 5 Server
+* [ ] Switch to `.env` files
+* [ ] Create new Stacks
   * [ ] `arr`
-  * [x] `mc-vanilla`
+  * [X] `gitea`
+  * [ ] `mail`
+  * [ ] `matrix`
+  * [X] `mc-vanilla`
+  * [X] `nextcloud`
+  * [X] `pingvin`
+  * [X] `portainer`
   * [X] `satisfactory-1`
   * [X] `satisfactory-2`
   * [X] `satisfactory-3`
-  * [ ] `mail`
-  * [ ] `matrix`
-  * [ ] `nextcloud`
+  * [X] `services`
+  * [X] `tools`
+  * [ ] `ts5`
+  * [X] `vaultwarden`
   * [X] `web`
-  * [X] `portainer`
-  * [ ] `services`
-  * [ ] `tools`
-  * [ ] `vaultwarden`
-  * [X] `pingvin`
-  * [ ] `gitea`
 
 
 ## Compose
@@ -91,12 +105,16 @@ Backup of my Docker Compose Files
 
 ```yaml
 version: "3.8"
+name: ""
+
 
 services:
   example:
     image: 
     container_name: 
     restart: always
+    depends_on:
+      - 
     ports:
       - 
     volumes:
@@ -104,12 +122,16 @@ services:
     environment:
       - 
     # Any Additional Instructions at the End
+    # Single newline between services
+
 
 networks:
   default:
     external: true
     name: proxynet
 
+
 volumes:
+  
 
 ```

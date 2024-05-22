@@ -1,21 +1,64 @@
+# Arr (Jellyfin & co.)
 version: "3.8"
+name: "arr"
+
 
 services:
-  example:
+  qbittorrent:
     image: 
     container_name: 
     restart: always
+    depends_on:
+      - 
     ports:
       - 
     volumes:
       - 
     environment:
       - 
+  
+  jellyfin:
+    image: 
+    container_name: 
+    restart: always
+    depends_on:
+      - 
+    ports:
+      - 
+    volumes:
+      - 
+    environment:
+      - 
+  
+  jellyseer:
+    image: 
+    container_name: 
+    restart: always
+    depends_on:
+      - 
+    ports:
+      - 
+    volumes:
+      - 
+    environment:
+      - 
+  
+  podgrab:
+    image: akhilrex/podgrab
+    container_name: podgrab
+    restart: always
+    volumes:
+      - podgrab_config:/config
+      - /nas/media/audio/podcasts:/assets
+    environment:
+      - CHECK_FREQUENCY=240
+
 
 networks:
   default:
     external: true
     name: proxynet
 
+
 volumes:
-  
+  podgrab_config:

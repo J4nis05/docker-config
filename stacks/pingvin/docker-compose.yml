@@ -1,13 +1,17 @@
+# Pingvin Share
 version: "3.8"
+name: "pingvin"
+
 
 services:
-  example:
+  pingvin:
     image: stonith404/pingvin-share
     container_name: pingvin
     restart: always
     volumes:
       - /mnt/data/docker/pingvin/data:/opt/app/backend/data
       - /mnt/data/docker/pingvin/data/images:/opt/app/frontend/public/img
+
 
 networks:
   default:

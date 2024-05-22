@@ -1,8 +1,10 @@
 # Satisfactory-1 (Ralul)
 version: "3.8"
+name: "satisfactory1"
+
 
 services:
-  example:
+  satisfactory-1:
     image: wolveix/satisfactory-server
     container_name: satisfactory-1
     restart: always
@@ -11,7 +13,7 @@ services:
       - 15000:15000/udp # Beacon Port
       - 15777:15777/udp # Query Port
     volumes:
-      - /mnt/data/gameserver/satisfacotry1/config:/config
+      - /mnt/data/docker/gameserver/satisfactory1/config:/config
     environment:
       - MAXPLAYERS=4
       - PGID=1000
@@ -23,6 +25,7 @@ services:
           memory: 16G
         reservations:
           memory: 14G
+
 
 networks:
   default:

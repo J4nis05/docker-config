@@ -1,8 +1,10 @@
 # Minecraft Vanilla Server
 version: "3.8"
+name: "mc-vanilla"
+
 
 services:
-  minecraft-server:
+  mc-wohnzimmer:
     image: j4nis05/minecraft-server:latest
     container_name: mc-wohnzimmer
     restart: always
@@ -11,12 +13,14 @@ services:
       - 25565:41340   # Port for Server Access
       - 25575:25575   # Port for Remote Console Access
     volumes:
-      - /mnt/data/gameserver/vanilla:/minecraft
+      - /mnt/data/docker/gameserver/vanilla:/minecraft
+
 
 networks:
   default:
     external: true
     name: proxynet
+
 
 volumes:
   

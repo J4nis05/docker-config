@@ -1,0 +1,352 @@
+version: "3.8"
+
+services:
+  # arr
+  qbittorrent:
+    image: binhex/arch-qbittorrentvpn
+    container_name: qbit
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    ports:
+      - 6881:6881       # Port Required for BitTorrent
+      - 6881:6881/udp   # Port Required for BitTorrent
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - qbit_config:/config
+      - qbit_theme:/theme
+      - /mnt/qbit:/data
+    environment:
+      - VPN_ENABLED=yes
+      - VPN_PROV=mullvad
+      - VPN_CLIENT=openvpn
+      - STRICT_PORT_FORWARD=yes
+      - ENABLE_PRIVOXY=no
+      - WEBUI_PORT=8080
+      - LAN_NETWORK=192.168.1.0/24
+      - PUID=1000
+      - GUID=1000
+
+  # atm9
+  minecraft-server:
+    image: j4nis05/minecraft-server:latest
+    container_name: mc-atm9
+    restart: always
+    command: bash -c /minecraft/startserver.sh
+    ports:
+      - 25566:25565   # Port for Server Access
+      - 25576:25575   # Port for Remote Console Access
+    volumes:
+      - /docker/atm9:/minecraft
+
+  # data
+  pingvin:
+    image: stonith404/pingvin-share
+    container_name: pingvin
+    restart: unless-stopped
+    volumes:
+      - /mnt/data/docker/pingvin/data:/opt/app/backend/data
+      - /mnt/data/docker/pingvin/data/images:/opt/app/frontend/public/img
+
+  # mail
+  mailserver:
+    image: docker.io/mailserver/docker-mailserver:latest
+    hostname: mail.j4nis05.ch
+    domainname: j4nis05.ch
+    container_name: mailserver
+    restart: always
+    cap_add: [ "NET_ADMIN", "SYS_PTRACE" ]
+    # env_file: mailserver.env
+    ports:
+      - 25:25
+      - 143:143
+      - 587:587
+      - 993:993
+      - 4190:4190
+    volumes:
+      - /docker/mail/dms/maildata:/var/mail
+      - /docker/mail/dms/mailstate:/var/mail-state
+      - /docker/mail/dms/maillogs:/var/log/mail
+      - /docker/mail/dms/config/:/tmp/docker-mailserver/
+      - /docker/mail/dms/cron/sa-learn:/etc/cron.d/sa-learn
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/letsencrypt:/etc/letsencrypt
+
+  # media
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    restart: always
+    volumes:
+      - jellyfin_config:/config
+      - jellyfin_cache:/cache
+      - /nas:/media
+
+  nextcloud-db:
+    image: mariadb:latest
+    container_name: nextcloud-db
+    restart: always
+    volumes:
+      - nextcloud_db_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+
+  nextcloud:
+    image: nextcloud:latest
+    container_name: nextcloud
+    restart: always
+    depends_on:
+      - nextcloud-db
+    volumes:
+      - /mnt/data/docker/nextcloud:/var/www/html
+    environment:
+      - MYSQL_HOST=nextcloud-db
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+
+  podgrab:
+    image: akhilrex/podgrab
+    container_name: podgrab
+    restart: always
+    volumes:
+      - podgrab_config:/config
+      - /nas/media/audio/podcasts:/assets
+    environment:
+      - CHECK_FREQUENCY=240
+
+  # portainer
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: always
+    ports:
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+  
+  # registry
+  registry:
+    image: registry:2
+    container_name: registry
+    restart: always
+    volumes:
+      - registry_data:/var/lib/registry
+      - /docker/registry/auth:/auth
+    environment:
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+
+  # satisfactory-1
+  satisfactory-server:
+    container_name: 'satisfactory-1'
+    hostname: 'satisfactory-server'
+    image: 'wolveix/satisfactory-server:latest'
+    ports:
+      - '7777:7777/udp'
+      - '15000:15000/udp'
+      - '15777:15777/udp'
+    volumes:
+      - '/docker/satisfactory/config:/config'
+    environment:
+      - MAXPLAYERS=4
+      - PGID=1000
+      - PUID=1000
+      - STEAMBETA=false
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 20G
+        reservations:
+          memory: 14G
+
+  # satisfactory-2
+  satisfactory-server:
+    container_name: 'satisfactory-2'
+    hostname: 'satisfactory-server'
+    image: 'wolveix/satisfactory-server:latest'
+    ports:
+      - '7777:7777/udp'
+      - '15000:15000/udp'
+      - '15777:15777/udp'
+    volumes:
+      - '/docker/satisfactory-wohnzimmer/config:/config'
+    environment:
+      - MAXPLAYERS=4
+      - PGID=1000
+      - PUID=1000
+      - STEAMBETA=false
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 20G
+        reservations:
+          memory: 14G
+  
+  # services
+  nginx:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: nginx
+    restart: always
+    ports:
+      - 80:80     # HTTP Redirect Port
+      - 443:443   # HTTPS Redirect Port
+      - 81:81     # Management Port
+    volumes:
+      - nginx_data:/data
+      - nginx_letsencrypt:/etc/letsencrypt
+    environment:
+      - TZ=Europe/Zurich
+      - DISABLE_IPV6=true
+
+  homarr:
+    image: ghcr.io/ajnart/homarr:latest
+    container_name: homarr
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
+      - homarr_configs:/app/data/configs
+      - homarr_icons:/app/public/icons
+      - homarr_data:/data
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  # matrix
+
+
+  # tools
+  archiveTeamWarrior:
+    image: atdr.meo.ws/archiveteam/warrior-dockerfile
+    container_name: archiveTeamWarrior
+    restart: always
+    hostname: archiveTeamWarrior
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
+    environment:
+      - DOWNLOADER=J4nis05
+      - SELECTED_PROJECT=auto
+      - CONCURRENT_ITEMS=5
+
+  gitea:
+    image: gitea/gitea:latest
+    container_name: gitea
+    restart: always
+    volumes:
+      - gitea_data:/data
+      - gitea_config:/etc/gitea
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: always
+    volumes:
+      - vaultwarden_data:/data
+    environment:
+      WEBSOCKET_ENABLED: "true"
+
+  # vanilla
+  minecraft-server:
+    image: j4nis05/minecraft-server:latest
+    container_name: mc-wohnzimmer
+    restart: always
+    command: java -Xmx4096M -Xms4096M -jar /minecraft/server.jar nogui
+    ports:
+      - 25565:41340   # Port for Server Access
+      - 25575:25575   # Port for Remote Console Access
+    volumes:
+      - /docker/vanilla:/minecraft
+
+  # web
+  admin.j4nis05.ch:
+    image: httpd:latest
+    container_name: admin.j4nis05.ch
+    restart: always
+    volumes:
+      - admin_j4nis05_ch_html:/usr/local/apache2/htdocs
+
+  cryotea.com:
+    image: j4nis05/blazor.cryotea.com
+    container_name: blazor.cryotea.com
+    restart: always
+
+  j4nis05.ch:
+    image: j4nis05/j4nis05.ch
+    container_name: j4nis05.ch
+    restart: always
+
+  startpage:
+    image: j4nis05/startpage
+    container_name: startpage
+    restart: always
+
+  www.j4nis05.ch:
+    image: j4nis05/www.j4nis05.ch
+    container_name: www.j4nis05.ch
+    restart: always
+
+
+networks:
+  default:
+    external: true
+    name: proxynet
+
+volumes:
+  # arr
+  qbit_config:
+  qbit_theme:
+
+  # atm9
+  # data
+  # mail
+
+  # media
+  jellyfin_config:
+  jellyfin_cache:
+  nextcloud_db_data:
+  podgrab_config:
+
+  # portainer
+  portainer_data:
+
+  # registry
+  registry_data:
+
+  # satisfactory
+  # satisfactory-wohnzimmer
+
+  # services
+  nginx_data:
+  nginx_letsencrypt:
+  homarr_configs:
+  homarr_icons:
+  homarr_data:
+
+  # synapse
+
+
+  # tools
+  gitea_data:
+  gitea_config:
+  vaultwarden_data:
+
+  # vanilla
+
+  # web
+  admin_j4nis05_ch_html:

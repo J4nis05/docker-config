@@ -1,4 +1,7 @@
+# Core Services (Nginx Proxy Manager & Watchtower)
 version: "3.8"
+name: "services"
+
 
 services:
   nginx:
@@ -16,16 +19,12 @@ services:
       - TZ=Europe/Zurich
       - DISABLE_IPV6=true
 
-  example:
-    image: 
-    container_name: 
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
     restart: always
-    ports:
-      - 
     volumes:
-      - 
-    environment:
-      - 
+      - /var/run/docker.sock:/var/run/docker.sock
 
 
 networks:
@@ -33,5 +32,7 @@ networks:
     external: true
     name: proxynet
 
+
 volumes:
-  
+  nginx_data:
+  nginx_letsencrypt:

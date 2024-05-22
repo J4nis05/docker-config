@@ -1,21 +1,25 @@
+# Websites
 version: "3.8"
+name: "web"
 
 services:
-  example:
-    image: 
-    container_name: 
+  cryotea.com:
+    image: j4nis05/blazor.cryotea.com
+    container_name: cryotea.com
     restart: always
-    ports:
-      - 
-    volumes:
-      - 
-    environment:
-      - 
+
+  startpage:
+    image: j4nis05/startpage
+    container_name: startpage
+    restart: always
+
+  www.j4nis05.ch:
+    image: j4nis05/www.j4nis05.ch
+    container_name: www.j4nis05.ch
+    restart: always
+
 
 networks:
   default:
     external: true
     name: proxynet
-
-volumes:
-  

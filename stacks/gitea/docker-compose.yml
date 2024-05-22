@@ -1,21 +1,47 @@
+# Gitea Server
 version: "3.8"
+name: "gitea"
+
 
 services:
-  example:
-    image: 
-    container_name: 
+  gitea:
+    image: gitea/gitea
+    container_name: gitea
     restart: always
-    ports:
-      - 
+    depends_on:
+      - gitea-db
     volumes:
-      - 
+      - gitea_data:/data
+      - gitea_config:/etc/gitea
     environment:
-      - 
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA__database__DB_TYPE=mysql
+      - GITEA__database__HOST=gitea-db:3306
+      - GITEA__database__NAME=gitea
+      - GITEA__database__USER=user
+      - GITEA__database__PASSWD=pass
+
+  gitea-db:
+    image: mariadb
+    container_name: gitea-db
+    restart: always
+    volumes:
+      - gitea_db_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+      - MYSQL_DATABASE=gitea
+
 
 networks:
   default:
     external: true
     name: proxynet
 
+
 volumes:
-  
+  gitea_data:
+  gitea_config:
+  gitea_db_data:

@@ -1,21 +1,42 @@
+# Vaultwarden Server
 version: "3.8"
+name: "vaultwarden"
+
 
 services:
-  example:
-    image: 
-    container_name: 
+  vaultwarden:
+    image: vaultwarden/server
+    container_name: vaultwarden
     restart: always
-    ports:
-      - 
+    depends_on:
+      - vaultwarden-db
     volumes:
-      - 
+      - vaultwarden_data:/data
     environment:
-      - 
+      - DATABASE_URL=mysql://user:pass@vaultwarden-db/vaultwarden
+#      - ADMIN_TOKEN= #IF enabled create a string with something like "openssl rand -base64 48"
+      - WEBSOCKET_ENABLED=true
+      - SIGNUPS_ALLOWED=true
+
+  vaultwarden-db:
+    image: mariadb
+    container_name: vaultwarden-db
+    restart: always
+    volumes:
+      - vaultwarden_db_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD: pass
+      - MYSQL_DATABASE: vaultwarden
+      - MYSQL_USER: user
+      - MYSQL_PASSWORD: pass
+
 
 networks:
   default:
     external: true
     name: proxynet
 
+
 volumes:
-  
+  vaultwarden_data:
+  vaultwarden_db_data:

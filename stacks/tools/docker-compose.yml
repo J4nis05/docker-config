@@ -1,21 +1,23 @@
+# Tools (currently only Archive Team Warrior)
 version: "3.8"
+name: "tools"
+
 
 services:
-  example:
-    image: 
-    container_name: 
+  archiveTeamWarrior:
+    image: atdr.meo.ws/archiveteam/warrior-dockerfile
+    container_name: archiveTeamWarrior
     restart: always
-    ports:
-      - 
-    volumes:
-      - 
     environment:
-      - 
+      - DOWNLOADER=J4nis05
+      - SELECTED_PROJECT=auto
+      - CONCURRENT_ITEMS=5
+    hostname: archiveTeamWarrior
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
+
 
 networks:
   default:
     external: true
     name: proxynet
-
-volumes:
-  

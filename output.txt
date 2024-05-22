@@ -1,2 +1,0 @@
-Checkbox 2 is active
-Checkbox 4 is active
