@@ -1,10 +1,25 @@
 # Synapse Server
 # https://linuxhandbook.com/install-matrix-synapse-docker/#step-2-set-up-synapse
+# homeserver.yaml generation: docker compose run --rm matrix generate
 version: "3.8"
 name: "matrix"
 
 
 services:
+  # Element Sample Config: https://develop.element.io/config.json
+  element:
+    image: 
+    container_name: element
+    restart: always
+    depends_on:
+      - 
+    ports:
+      - 
+    volumes:
+      - 
+    environment:
+      - 
+
   matrix:
     image: matrixdotorg/synapse
     container_name: matrix
@@ -15,11 +30,11 @@ services:
       # - matrix_data:/data
       - ./data:/data
     environment:
-      - VIRTUAL_HOST: matrix.j4nis05.ch
-      - VIRTUAL_PORT: 8008
-      - LETSENCRYPT_HOST: matrix.j4nis05.ch
-      - SYNAPSE_SERVER_NAME: matrix.j4nis05.ch
-      - SYNAPSE_REPORT_STATS: "no"
+      - VIRTUAL_HOST=matrix.j4nis05.ch
+      - VIRTUAL_PORT=8008
+      - LETSENCRYPT_HOST=matrix.j4nis05.ch
+      - SYNAPSE_SERVER_NAME=matrix.j4nis05.ch
+      - SYNAPSE_REPORT_STATS="no"
   
   matrix-db:
     image: postgres
@@ -28,10 +43,10 @@ services:
     volumes:
       - matrix_db_data:/var/lib/postgresql/
     environment:
-      - POSTGRES_PASSWORD: pass
-      - POSTGRES_USER: user
-      - POSTGRES_DB: synapse
-      - POSTGRES_INITDB_ARGS: "--encoding='UTF8' --lc-collate='C' --lc-ctype='C'"
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_USER=user
+      - POSTGRES_DB=synapse
+      - POSTGRES_INITDB_ARGS="--encoding='UTF8' --lc-collate='C' --lc-ctype='C'"
 
 
 networks:

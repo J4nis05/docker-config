@@ -1,6 +1,7 @@
 # docker-config
 ---
-Backup of my Docker Compose Files
+Backup of my Docker Compose Files.
+Documentation of the Service Stacks is located in the [Docs](docs/README.md).
 
 
 ## Stacks
@@ -43,6 +44,7 @@ Backup of my Docker Compose Files
 * [ ] Mail Server:          [Guide](https://www.libe.net/docker-mailserver)
 
 ### Matrix (`matrix`)
+* [ ] Element Client? https://cyberhost.uk/element-matrix-setup/
 * [ ] Synapse Server:       [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
 * [ ] Synapse Database
 
@@ -81,6 +83,7 @@ Backup of my Docker Compose Files
 * [ ] Setup Jellyseer
 * [ ] Setup Teamspeak 5 Server
 * [ ] Switch to `.env` files
+* [ ] Switch to static file Paths
 * [ ] Create new Stacks
   * [ ] `arr`
   * [X] `gitea`
@@ -135,3 +138,20 @@ volumes:
   
 
 ```
+
+
+## Switch from Volumes to filepaths
+| Volume                       | File Path                                 |
+| ---------------------------- | ----------------------------------------- |
+| `arr_qbit_config`            | `/mnt/data/docker/arr/qbittorrent/config` |
+| `arr_qbit_theme`             | `/mnt/data/docker/arr/qbittorrent/theme`  |
+| `media_jellyfin_cache`       | `/mnt/data/docker/arr/jellyfin/cache`     |
+| `media_jellyfin_config`      | `/mnt/data/docker/arr/jellyfin/config`    |
+| `media_podgrab_config`       | `/mnt/data/docker/arr/podgrab/config`     |
+| `media_nextcloud_db_data`    | `/mnt/data/docker/nextcloud/database`     |
+| `portainer_portainer_data`   | `/mnt/data/docker/portainer/data`         |
+| `services_nginx_data`        | `/mnt/data/docker/nginx/data`             |
+| `services_nginx_letsencrypt` | `/mnt/data/docker/nginx/letsencrypt`      |
+| `tools_gitea_config`         | `/mnt/data/docker/gitea/config`           |
+| `tools_gitea_data`           | `/mnt/data/docker/gitea/data`             |
+| `tools_vaultwarden_data`     | `/mnt/data/docker/vaultwarden/data`       |
