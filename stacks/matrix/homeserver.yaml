@@ -44,5 +44,9 @@ signing_key_path: "/data/matrix.j4nis05.ch.signing.key"
 trusted_key_servers:
   - server_name: "matrix.org"
 
+# Recommended to set this to false, otherwise anyone can sign up
+enable_registration: true
+
+# To create a new user follow https://cyberhost.uk/element-matrix-setup/#createnewusers
 
 # vim:ft=yaml

@@ -13,7 +13,7 @@ services:
       - 15000:15000/udp # Beacon Port
       - 15777:15777/udp # Query Port
     volumes:
-      - /mnt/data/docker/gameserver/satisfactory2/config:/config
+      - /mnt/data/docker/games/satisfactory2/config:/config
     environment:
       - MAXPLAYERS=4
       - PGID=1000

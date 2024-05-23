@@ -1,24 +1,19 @@
 # Synapse Server
 # https://linuxhandbook.com/install-matrix-synapse-docker/#step-2-set-up-synapse
 # homeserver.yaml generation: docker compose run --rm matrix generate
+# Element Sample Config: https://develop.element.io/config.json
+# https://cyberhost.uk/element-matrix-setup/
 version: "3.8"
 name: "matrix"
 
 
 services:
-  # Element Sample Config: https://develop.element.io/config.json
   element:
-    image: 
+    image: vectorim/element-web
     container_name: element
     restart: always
-    depends_on:
-      - 
-    ports:
-      - 
     volumes:
-      - 
-    environment:
-      - 
+      - /mnt/data/docker/matrix/element/config.json:/app/config.json
 
   matrix:
     image: matrixdotorg/synapse
@@ -27,8 +22,7 @@ services:
     depends_on:
       - matrix-db
     volumes:
-      # - matrix_data:/data
-      - ./data:/data
+      - /mnt/data/docker/matrix/matrix/data:/data
     environment:
       - VIRTUAL_HOST=matrix.j4nis05.ch
       - VIRTUAL_PORT=8008
@@ -41,7 +35,7 @@ services:
     container_name: matrix-db
     restart: always
     volumes:
-      - matrix_db_data:/var/lib/postgresql/
+      - /mnt/data/docker/matrix/matrix-db/data:/var/lib/postgresql/
     environment:
       - POSTGRES_PASSWORD=pass
       - POSTGRES_USER=user
