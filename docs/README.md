@@ -35,11 +35,13 @@ Documentation
 | 01 | `arr`            | qbittorrent        | /mnt/data/docker/arr/qbittorrent/theme        | /theme                       |
 | 01 | `arr`            | qbittorrent        | /mnt/qbit                                     | /data                        |
 | 01 | `arr`            | qbittorrent        | /etc/localtime                                | /etc/localtime               |
-| 01 | `arr`            | jellyfin           | /mnt/data/docker/arr/jellyfin | / |
-| 01 | `arr`            | jellyseer          | /mnt/data/docker/arr/jellyseer | / |
-| 01 | `arr`            | radarr             | /mnt/data/docker/arr/radarr | / |
-| 01 | `arr`            | sonarr             | /mnt/data/docker/arr/sonarr | / |
-| 01 | `arr`            | podgrab            | /mnt/data/docker/arr/podgrab | / |
+| 01 | `arr`            | jellyfin           | /mnt/data/docker/arr/jellyfin/config          | /config                      |
+| 01 | `arr`            | jellyfin           | /mnt/data/docker/arr/jellyfin/cache           | /cache                       |
+| 01 | `arr`            | jellyseer          | /mnt/data/docker/arr/jellyseer/`n/a`          | /`n/a`                       |
+| 01 | `arr`            | radarr             | /mnt/data/docker/arr/radarr/`n/a`             | /`n/a`                       |
+| 01 | `arr`            | sonarr             | /mnt/data/docker/arr/sonarr/`n/a`             | /`n/a`                       |
+| 01 | `arr`            | podgrab            | /mnt/data/docker/arr/podgrab/config           | /config                      |
+| 01 | `arr`            | podgrab            | /nas/media/audio/podcasts                     | /assets                      |
 | 02 | `gitea`          | gitea              | /mnt/data/docker/gitea/gitea/data             | /data                        |
 | 02 | `gitea`          | gitea              | /mnt/data/docker/gitea/gitea/config           | /etc/gitea                   |
 | 02 | `gitea`          | gitea-db           | /mnt/data/docker/gitea/database/data          | /var/lib/mysql               |
@@ -63,9 +65,9 @@ Documentation
 | 13 | `ts5`            | `n/a`              | `n/a`                                         | `n/a`                        |
 | 14 | `vaultwarden`    | vaultwarden        | /mnt/data/docker/vaultwarden/vaultwarden/data | /data                        |
 | 14 | `vaultwarden`    | vaultwarden-db     | /mnt/data/docker/vaultwarden/database/data    | /var/lib/mysql               |
-| 15 | `web`            | cryotea.com        | `none`                                        | `none`                       |
-| 15 | `web`            | startpage          | `none`                                        | `none`                       |
-| 15 | `web`            | www.j4nis05.ch     | `none`                                        | `none`                       |
+| 15 | `web`            | cryotea.com        | `none`                                        | /home/node/app               |
+| 15 | `web`            | startpage          | `none`                                        | /usr/share/nginx/html        |
+| 15 | `web`            | www.j4nis05.ch     | `none`                                        | /app                         |
 
 
 ### Switch from Volumes to filepaths
