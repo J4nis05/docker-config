@@ -11,8 +11,8 @@ services:
     depends_on:
       - gitea-db
     volumes:
-      - gitea_data:/data
-      - gitea_config:/etc/gitea
+      - /mnt/data/docker/gitea/gitea/data:/data
+      - /mnt/data/docker/gitea/gitea/config:/etc/gitea
     environment:
       - USER_UID=1000
       - USER_GID=1000
@@ -27,7 +27,7 @@ services:
     container_name: gitea-db
     restart: always
     volumes:
-      - gitea_db_data:/var/lib/mysql
+      - /mnt/data/docker/gitea/database/data:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=pass
       - MYSQL_USER=user
@@ -39,9 +39,3 @@ networks:
   default:
     external: true
     name: proxynet
-
-
-volumes:
-  gitea_data:
-  gitea_config:
-  gitea_db_data:

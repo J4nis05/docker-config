@@ -7,56 +7,59 @@
 
 ## Stacks
 ### Arr (`arr`)
-* [ ] qBittorrent:          [qbit.j4nis05.ch](https://qbit.j4nis05.ch)
-* [ ] Jellyfin:             [jelly.j4nis05.ch](https://jelly.j4nis05.ch)
-* [ ] Jellyseer:            [request.j4nis05.ch](https://request.j4nis05.ch)
-* [ ] Podgrab:              [podgrab.j4nis05.ch](https://podgrab.j4nis05.ch)
+* [X] qBittorrent:          [qbit.j4nis05.ch](https://qbit.j4nis05.ch)
+* [X] Jellyfin:             [jelly.j4nis05.ch](https://jelly.j4nis05.ch)
+* [X] Jellyseer:            [request.j4nis05.ch](https://request.j4nis05.ch)
+* [X] Radarr:               [radarr.j4nis05.ch](https://radarr.j4nis05.ch)
+* [X] Sonarr:               [sonarr.j4nis05.ch](https://sonarr.j4nis05.ch)
+* [X] Prowlarr:             [prowlarr.j4nis05.ch](https://prowlarr.j4nis05.ch)
+* [X] Podgrab:              [podgrab.j4nis05.ch](https://podgrab.j4nis05.ch)
 
 ### Games (`mc-vanilla`, `satisfactory-1/3`)
-* [ ] Minecraft Vanilla
+* [X] Minecraft Vanilla
 * [ ] Satisfactory 1
 * [ ] Satisfactory 2
 * [ ] Satisfactory 3
 
 ### Git (`gitea`)
-* [ ] Gitea:                [git.j4nis05.ch](https://git.j4nis05.ch)
-* [ ] Gitea Database
+* [X] Gitea:                [git.j4nis05.ch](https://git.j4nis05.ch)
+* [X] Gitea Database
 
 ### Mail (`mail`)
 * [ ] Mail Server:          [Guide](https://www.libe.net/docker-mailserver)
 
 ### Matrix (`matrix`)
-* [ ] Element Client:       [element.j4nis05.ch](https://element.j4nis05.ch)
+* [X] Element Client:       [element.j4nis05.ch](https://element.j4nis05.ch)
 * [ ] Synapse Server:       [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
-* [ ] Synapse Database
+* [X] Synapse Database
 
 ### Nextcloud (`nextcloud`)
-* [ ] Nextcloud:            [nas.j4nis05.ch](https://nas.j4nis05.ch)
-* [ ] Nextcloud Database
+* [X] Nextcloud:            [nas.j4nis05.ch](https://nas.j4nis05.ch)
+* [X] Nextcloud Database
 
 ### Personal Websites (`web`)
-* [ ] Cryotea.com:          [cryotea.com](http://cryotea.com)
-* [ ] Startpage:            [start.j4nis05.ch](https://start.j4nis05.ch)
-* [ ] Personal Website:     [www.j4nis05.ch](https://www.j4nis05.ch)
+* [X] Cryotea.com:          [cryotea.com](http://cryotea.com)
+* [X] Startpage:            [start.j4nis05.ch](https://start.j4nis05.ch)
+* [X] Personal Website:     [www.j4nis05.ch](https://www.j4nis05.ch)
 
 ### Pingvin Share (`pingvin`)
-* [ ] Pingvin Share:        [send.j4nis05.ch](https://send.j4nis05.ch)
+* [X] Pingvin Share:        [send.j4nis05.ch](https://send.j4nis05.ch)
 
 ### Portainer (`portainer`)
-* [ ] Portainer:            [docker.j4nis05.ch](https://docker.j4nis05.ch)
+* [X] Portainer:            [docker.j4nis05.ch](https://docker.j4nis05.ch)
 
 ### Services (`services`)
-* [ ] Nginx Proxy Manager:  [proxy.j4nis05.ch](https://proxy.j4nis05.ch)
+* [X] Nginx Proxy Manager:  [proxy.j4nis05.ch](https://proxy.j4nis05.ch)
 
 ### Teamspeak 5 Server (`ts5`)
 * [ ] 
 
 ### Tools (`tools`)
-* [ ] Archive Team Warrior: [warrior.j4nis05.ch](https://warrior.j4nis05.ch)
+* [X] Archive Team Warrior: [warrior.j4nis05.ch](https://warrior.j4nis05.ch)
 
 ### Vaultwarden (`vaultwarden`)
-* [ ] Vaultwarden:          [vault.j4nis05.ch](https://vault.j4nis05.ch)
-* [ ] Vaultwarden Database
+* [X] Vaultwarden:          [vault.j4nis05.ch](https://vault.j4nis05.ch)
+* [X] Vaultwarden Database
 
 ### Table View
 | No | Name             | Link                                                       |

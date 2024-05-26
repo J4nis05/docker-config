@@ -12,14 +12,10 @@ services:
       - 9000:9000   # HTTP Port
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
+      - /mnt/data/docker/portainer/portainer/data:/data
 
 
 networks:
   default:
     external: true
     name: proxynet
-
-
-volumes:
-  portainer_data:

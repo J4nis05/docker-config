@@ -5,14 +5,18 @@ name: "nextcloud"
 
 services:
   nextcloud:
-    image: nextcloud
+    image: lscr.io/linuxserver/nextcloud
     container_name: nextcloud
     restart: always
     depends_on:
       - nextcloud-db
     volumes:
-      - /mnt/data/docker/nextcloud:/var/www/html
+      - /mnt/data/docker/nextcloud/nextcloud/config:/config
+      - /mnt/data/docker/nextcloud/nextcloud/data:/data
     environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Zurich
       - MYSQL_HOST=nextcloud-db
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=user
@@ -23,7 +27,7 @@ services:
     container_name: nextcloud-db
     restart: always
     volumes:
-      - nextcloud_db_data:/var/lib/mysql
+      - /mnt/data/docker/nextcloud/database/data:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=pass
       - MYSQL_DATABASE=nextcloud
@@ -35,7 +39,3 @@ networks:
   default:
     external: true
     name: proxynet
-
-
-volumes:
-  nextcloud_db_data:

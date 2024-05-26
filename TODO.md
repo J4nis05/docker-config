@@ -1,16 +1,17 @@
 TODO
 ===
 
-* [ ] Setup Synapse Server
+* [X] Setup Synapse Server
 * [ ] Setup Mail Server
-* [ ] Setup Jellyseer
+* [X] Setup Jellyseer
 * [ ] Setup Teamspeak 5 Server
 * [ ] Switch to `.env` files
-* [ ] Switch to static file Paths
-* [ ] Create new Stacks
-  * [ ] `arr`
-  * [X] `gitea`
+* [X] Switch to static file Paths
+* [X] Create new Stacks
   * [ ] `mail`
+  * [ ] `ts5`
+  * [X] `arr`
+  * [X] `gitea`
   * [X] `matrix`
   * [X] `mc-vanilla`
   * [X] `nextcloud`
@@ -21,13 +22,13 @@ TODO
   * [X] `satisfactory-3`
   * [X] `services`
   * [X] `tools`
-  * [ ] `ts5`
   * [X] `vaultwarden`
   * [X] `web`
 * [ ] Document new Stacks
+  * [ ] `mail`
+  * [ ] `ts5`
   * [ ] `arr`
   * [ ] `gitea`
-  * [ ] `mail`
   * [ ] `matrix`
   * [ ] `mc-vanilla`
   * [ ] `nextcloud`
@@ -38,6 +39,5 @@ TODO
   * [ ] `satisfactory-3`
   * [ ] `services`
   * [ ] `tools`
-  * [ ] `ts5`
   * [ ] `vaultwarden`
   * [ ] `web`

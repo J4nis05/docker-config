@@ -9,8 +9,8 @@ services:
     container_name: pingvin
     restart: always
     volumes:
-      - /mnt/data/docker/pingvin/data:/opt/app/backend/data
-      - /mnt/data/docker/pingvin/data/images:/opt/app/frontend/public/img
+      - /mnt/data/docker/pingvin/pingvin/data:/opt/app/backend/data
+      - /mnt/data/docker/pingvin/pingvin/images:/opt/app/frontend/public/img
 
 
 networks:

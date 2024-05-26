@@ -20,7 +20,7 @@ UUID=553c8fe7-6cc0-4351-9c4b-bcb1b1adfbb3   /mnt/qbit           ext4     default
 UUID=4a731b9f-b7c3-403f-82d4-c82a8a728bba   /mnt/smb            ext4     defaults           0       0
 
 # Network Drives
-//192.168.1.97/photos   /nas/photos         cifs    uid=0,credentials=/nas/nas-credentials  0       0
-//192.168.1.97/media    /nas/media          cifs    uid=0,credentials=/nas/nas-credentials  0       0
-//192.168.1.97/anime    /nas/anime          cifs    uid=0,credentials=/nas/nas-credentials  0       0
-//192.168.1.97/backup   /nas/backups        cifs    uid=0,credentials=/nas/nas-credentials  0       0
+#//192.168.1.97/photos   /nas/photos         cifs    uid=0,credentials=/nas/nas-credentials  0       0
+#//192.168.1.97/media    /nas/media          cifs    uid=0,credentials=/nas/nas-credentials  0       0
+#//192.168.1.97/anime    /nas/anime          cifs    uid=0,credentials=/nas/nas-credentials  0       0
+#//192.168.1.97/backup   /nas/backups        cifs    uid=0,credentials=/nas/nas-credentials  0       0

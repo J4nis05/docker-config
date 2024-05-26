@@ -28,7 +28,7 @@ services:
       - VIRTUAL_PORT=8008
       - LETSENCRYPT_HOST=matrix.j4nis05.ch
       - SYNAPSE_SERVER_NAME=matrix.j4nis05.ch
-      - SYNAPSE_REPORT_STATS="no"
+      - SYNAPSE_REPORT_STATS=no
   
   matrix-db:
     image: postgres
@@ -47,8 +47,3 @@ networks:
   default:
     external: true
     name: proxynet
-
-
-volumes:
-  matrix_data:
-  matrix_db_data:

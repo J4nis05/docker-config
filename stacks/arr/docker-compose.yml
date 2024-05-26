@@ -5,50 +5,95 @@ name: "arr"
 
 services:
   qbittorrent:
-    image: 
-    container_name: 
+    image: binhex/arch-qbittorrentvpn
+    container_name: qbittorrent
     restart: always
-    depends_on:
-      - 
     ports:
-      - 
+      - 6881:6881       # Port Required for BitTorrent
+      - 6881:6881/udp   # Port Required for BitTorrent
     volumes:
-      - 
+      - /etc/localtime:/etc/localtime:ro
+      - /mnt/qbit:/data
+      - /mnt/data/docker/arr/qbittorrent/config:/config
+      - /mnt/data/docker/arr/qbittorrent/theme:/theme
     environment:
-      - 
-  
+      - VPN_ENABLED=yes
+      - VPN_PROV=mullvad
+      - VPN_CLIENT=openvpn
+      - STRICT_PORT_FORWARD=yes
+      - ENABLE_PRIVOXY=no
+      - WEBUI_PORT=8080
+      - LAN_NETWORK=192.168.1.0/24
+      - PUID=1000
+      - GUID=1000
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+
   jellyfin:
-    image: 
-    container_name: 
+    image: jellyfin/jellyfin
+    container_name: jellyfin
     restart: always
-    depends_on:
-      - 
-    ports:
-      - 
     volumes:
-      - 
-    environment:
-      - 
-  
-  jellyseer:
-    image: 
-    container_name: 
+      - /nas:/media
+      - /mnt/data/docker/arr/jellyfin/config:/config
+      - /mnt/data/docker/arr/jellyfin/cache:/cache
+
+  jellyseerr:
+    image: fallenbagel/jellyseerr
+    container_name: jellyseerr
     restart: always
-    depends_on:
-      - 
-    ports:
-      - 
     volumes:
-      - 
+      - /mnt/data/docker/arr/jellyseerr/config:/app/config
     environment:
-      - 
-  
+      - TZ=Etc/UTC
+      - PORT=5055
+      - LOG_LEVEL=debug
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr
+    container_name: sonarr
+    restart: always
+    volumes:
+      - /mnt/data/docker/arr/sonarr/config:/config
+      - /mnt/data/docker/arr/sonarr/downloads:/data
+      - /nas:/nas
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+
+  radarr:
+    image: lscr.io/linuxserver/radarr
+    container_name: radarr
+    restart: always
+    volumes:
+      - /mnt/data/docker/arr/radarr/config:/config
+      - /mnt/data/docker/arr/radarr/downloads:/downloads
+      - /nas:/nas
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr
+    container_name: prowlarr
+    restart: always
+    volumes:
+      - /mnt/data/docker/arr/prowlarr/config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+
   podgrab:
     image: akhilrex/podgrab
     container_name: podgrab
     restart: always
     volumes:
-      - podgrab_config:/config
+      - /mnt/data/docker/arr/podgrab/config:/config
       - /nas/media/audio/podcasts:/assets
     environment:
       - CHECK_FREQUENCY=240
@@ -58,7 +103,3 @@ networks:
   default:
     external: true
     name: proxynet
-
-
-volumes:
-  podgrab_config:

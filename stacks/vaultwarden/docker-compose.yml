@@ -11,7 +11,7 @@ services:
     depends_on:
       - vaultwarden-db
     volumes:
-      - vaultwarden_data:/data
+      - /mnt/data/docker/vaultwarden/vaultwarden/data:/data
     environment:
       - DATABASE_URL=mysql://user:pass@vaultwarden-db/vaultwarden
       #- ADMIN_TOKEN= #IF enabled create a string with something like "openssl rand -base64 48"
@@ -23,7 +23,7 @@ services:
     container_name: vaultwarden-db
     restart: always
     volumes:
-      - vaultwarden_db_data:/var/lib/mysql
+      - /mnt/data/docker/vaultwarden/database/data:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=pass
       - MYSQL_DATABASE=vaultwarden
@@ -35,8 +35,3 @@ networks:
   default:
     external: true
     name: proxynet
-
-
-volumes:
-  vaultwarden_data:
-  vaultwarden_db_data:

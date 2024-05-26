@@ -13,8 +13,8 @@ services:
       - 443:443   # HTTPS Redirect Port
       - 81:81     # Management Port
     volumes:
-      - nginx_data:/data
-      - nginx_letsencrypt:/etc/letsencrypt
+      - /mnt/data/docker/services/nginx/data:/data
+      - /mnt/data/docker/services/nginx/letsencrypt:/etc/letsencrypt
     environment:
       - TZ=Europe/Zurich
       - DISABLE_IPV6=true
@@ -31,8 +31,3 @@ networks:
   default:
     external: true
     name: proxynet
-
-
-volumes:
-  nginx_data:
-  nginx_letsencrypt:
