@@ -47,6 +47,11 @@ trusted_key_servers:
 # Recommended to set this to false, otherwise anyone can sign up
 enable_registration: true
 
+# We don't do Warnings arojund these parts
+enable_registration_without_verification: true
+suppress_key_server_warning: true
+allow_unsafe_locale: true
+
 # To create a new user follow https://cyberhost.uk/element-matrix-setup/#createnewusers
 
 # vim:ft=yaml

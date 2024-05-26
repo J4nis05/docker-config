@@ -30,7 +30,7 @@
 
 ### Matrix (`matrix`)
 * [X] Element Client:       [element.j4nis05.ch](https://element.j4nis05.ch)
-* [ ] Synapse Server:       [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
+* [X] Synapse Server:       [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
 * [X] Synapse Database
 
 ### Nextcloud (`nextcloud`)
