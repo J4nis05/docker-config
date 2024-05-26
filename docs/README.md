@@ -21,6 +21,7 @@ Documentation
 | `🟠`  | `ts5`            | [Service Stack Description](ts5.md)            |
 | `🟢`  | `vaultwarden`    | [Service Stack Description](vaultwarden.md)    |
 | `🟢`  | `web`            | [Service Stack Description](web.md)            |
+| `🟢`  | `homepage`       | [Service Stack Description](homepage.md)       |
 
 **Legend**
 * `🔴`: `Offline / Not Implemented`
@@ -78,6 +79,8 @@ Documentation
 | 15 | `web`            | cryotea.com        | `none`                                        | /home/node/app               |
 | 15 | `web`            | startpage          | `none`                                        | /usr/share/nginx/html        |
 | 15 | `web`            | www.j4nis05.ch     | `none`                                        | /app                         |
+| 16 | `homepage`       | homepage           | /mnt/data/docker/homepage/hopmepage/data      | /app/config                  |
+| 16 | `homepage`       | homepage           | /var/run/docker.sock                          | /var/run/docker.sock:ro      |
 
 
 ## Port Mappings
@@ -124,6 +127,7 @@ Documentation
 | 15 | `web`            | cryotea.com        | `none`    | 8080           |
 | 15 | `web`            | startpage          | `none`    | 80             |
 | 15 | `web`            | www.j4nis05.ch     | `none`    | 3000           |
+| 16 | `homepage`       | homepage           | `none`    | 3000           |
 
 
 ## Website-Links
@@ -149,4 +153,5 @@ Documentation
 | 18 | archiveTeamWarrior | https://warrior.j4nis05.ch  |
 | 19 | www.j4nis05.ch     | https://www.j4nis05.ch      |
 | 20 | prowlarr           | https://prowlarr.j4nis05.ch |
+| 21 | homepage           | https://homepage.j4nis05.ch |
 

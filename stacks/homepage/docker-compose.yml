@@ -1,0 +1,22 @@
+# Homepage Dashboard
+version: "3.8"
+name: "homepage"
+
+
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage
+    container_name: homepage
+    restart: always
+    volumes:
+      - /mnt/data/docker/homepage/hopmepage/data:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - PUID=1000
+      - PGID=1000
+
+
+networks:
+  default:
+    external: true
+    name: proxynet
