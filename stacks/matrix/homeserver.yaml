@@ -47,6 +47,9 @@ trusted_key_servers:
 # Recommended to set this to false, otherwise anyone can sign up
 enable_registration: true
 
+allow_public_rooms_without_auth: true
+allow_public_rooms_over_federation: true
+
 # We don't do Warnings arojund these parts
 enable_registration_without_verification: true
 suppress_key_server_warning: true

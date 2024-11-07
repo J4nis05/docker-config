@@ -12,6 +12,8 @@ services:
     depends_on:
       - nextcloud-db
       - redis
+    ports:
+      - 8080:80
     volumes:
       - /mnt/data/docker/nextcloud/nextcloud/html:/var/www/html
       - /mnt/data/docker/nextcloud/nextcloud/custom_apps:/var/www/html/custom_apps

@@ -1,0 +1,18 @@
+# Otter Wiki
+version: "3.8"
+name: "otterwiki"
+
+
+services:
+  otterwiki:
+    image: redimp/otterwiki
+    container_name: otterwiki
+    restart: always
+    volumes:
+      - /mnt/data/docker/otterwiki/otterwiki/data:/app-data
+
+
+networks:
+  default:
+    external: true
+    name: proxynet
