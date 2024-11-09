@@ -1,0 +1,22 @@
+# Minecraft Vanilla Server
+version: "3.8"
+name: "mc-atm9"
+
+
+services:
+  mc-atm9:
+    image: j4nis05/minecraft-server:latest
+    container_name: mc-atm9
+    restart: always
+    command: sh /minecraft/startserver.sh
+    ports:
+      - 25570:25565   # Port for Server Access
+      - 25580:25575
+    volumes:
+      - /docker/games/atm9:/minecraft
+
+
+networks:
+  default:
+    external: true
+    name: proxynet

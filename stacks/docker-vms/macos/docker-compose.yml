@@ -1,0 +1,40 @@
+# https://github.com/dockur/macos
+name: "docker-macos"
+
+
+services:
+  macos:
+    image: ghcr.io/dockur/macos:1.14
+    container_name: macos
+    restart: always
+    ports:
+      - 8006:8006       # Browser Endpoint
+      - 5900:5900/tcp   # 
+      - 5900:5900/udp   # 
+    volumes:
+      - ./macos:/storage
+      - ./shared:/data
+      # - ./example.iso:/custom.iso
+      # - ./postinstall:/oem  # "install.bat"
+      # - ./disk2:/storage2
+      # - ./disk3:/storage3
+    environment:
+      - VERSION=15      # Sequioa
+      - VERSION=14      # Sonoma
+      - VERSION=13      # Ventura
+      - VERSION=12      # Monterey
+      - VERSION=11      # Big Sur
+      - DISK_SIZE=64G
+      # - RAM_SIZE=4G
+      # - CPU_CORES=2
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/kvm
+    stop_grace_period: 2m
+
+
+networks:
+  default:
+    external: true
+    name: proxynet

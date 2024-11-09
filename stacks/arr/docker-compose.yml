@@ -57,7 +57,7 @@ services:
     restart: always
     volumes:
       - /mnt/data/docker/arr/sonarr/config:/config
-      - /mnt/data/docker/arr/sonarr/downloads:/data
+      - /mnt/qbit:/data
       - /nas:/nas
     environment:
       - PUID=1000
@@ -70,7 +70,7 @@ services:
     restart: always
     volumes:
       - /mnt/data/docker/arr/radarr/config:/config
-      - /mnt/data/docker/arr/radarr/downloads:/downloads
+      - /mnt/qbit:/data
       - /nas:/nas
     environment:
       - PUID=1000

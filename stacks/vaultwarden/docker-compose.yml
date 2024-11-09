@@ -14,7 +14,7 @@ services:
       - /mnt/data/docker/vaultwarden/vaultwarden/data:/data
     environment:
       - DATABASE_URL=mysql://user:pass@vaultwarden-db/vaultwarden
-      #- ADMIN_TOKEN= #IF enabled create a string with something like "openssl rand -base64 48"
+      - ADMIN_TOKEN=HWV8oXjkT3yvSz8igEOs6d9GNJ+6VUMhXRDwpFlO5tKjHD6aq6NQaPABjTAd2Qkp
       - WEBSOCKET_ENABLED=true
       - SIGNUPS_ALLOWED=true
 

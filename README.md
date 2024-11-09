@@ -1,12 +1,15 @@
 # docker-config
+
 ---
+
 * Backup of my Docker Compose Files.
 * Documentation of the Service Stacks is located in the [Docs](docs/README.md).
 * Tasks are in [TODO](TODO.md)
 
-
 ## Stacks
+
 ### Arr (`arr`)
+
 * [X] qBittorrent:          [qbit.j4nis05.ch](https://qbit.j4nis05.ch)
 * [X] Jellyfin:             [jelly.j4nis05.ch](https://jelly.j4nis05.ch)
 * [X] Jellyseer:            [request.j4nis05.ch](https://request.j4nis05.ch)
@@ -16,52 +19,57 @@
 * [X] Podgrab:              [podgrab.j4nis05.ch](https://podgrab.j4nis05.ch)
 
 ### Games (`mc-vanilla`, `satisfactory-1/3`)
+
 * [X] Minecraft Vanilla
-* [ ] Satisfactory 1
-* [ ] Satisfactory 2
-* [ ] Satisfactory 3
+* [X] Satisfactory 1
+* [X] Satisfactory 2
+* [X] Satisfactory 3
 
 ### Git (`gitea`)
+
 * [X] Gitea:                [git.j4nis05.ch](https://git.j4nis05.ch)
 * [X] Gitea Database
 
-### Mail (`mail`)
-* [ ] Mail Server:          [Guide](https://www.libe.net/docker-mailserver)
-
 ### Matrix (`matrix`)
+
 * [X] Element Client:       [element.j4nis05.ch](https://element.j4nis05.ch)
 * [X] Synapse Server:       [matrix.j4nis05.ch](https://matrix.j4nis05.ch)
 * [X] Synapse Database
 
 ### Nextcloud (`nextcloud`)
+
 * [X] Nextcloud:            [nas.j4nis05.ch](https://nas.j4nis05.ch)
 * [X] Nextcloud Database
 
 ### Personal Websites (`web`)
+
 * [X] Cryotea.com:          [cryotea.com](http://cryotea.com)
 * [X] Startpage:            [start.j4nis05.ch](https://start.j4nis05.ch)
 * [X] Personal Website:     [www.j4nis05.ch](https://www.j4nis05.ch)
 
 ### Pingvin Share (`pingvin`)
+
 * [X] Pingvin Share:        [send.j4nis05.ch](https://send.j4nis05.ch)
 
 ### Portainer (`portainer`)
+
 * [X] Portainer:            [docker.j4nis05.ch](https://docker.j4nis05.ch)
 
 ### Services (`services`)
+
 * [X] Nginx Proxy Manager:  [proxy.j4nis05.ch](https://proxy.j4nis05.ch)
 
-### Teamspeak 5 Server (`ts5`)
-* [ ] 
-
 ### Tools (`tools`)
+
 * [X] Archive Team Warrior: [warrior.j4nis05.ch](https://warrior.j4nis05.ch)
 
 ### Vaultwarden (`vaultwarden`)
+
 * [X] Vaultwarden:          [vault.j4nis05.ch](https://vault.j4nis05.ch)
 * [X] Vaultwarden Database
 
 ### Table View
+
 | No | Name             | Link                                                       |
 | -- | ---------------- | ---------------------------------------------------------- |
 | 01 | `arr`            | [Docker Compose](stacks/arr/docker-compose.yml)            |
@@ -81,8 +89,8 @@
 | 14 | `vaultwarden`    | [Docker Compose](stacks/vaultwarden/docker-compose.yml)    |
 | 15 | `web`            | [Docker Compose](stacks/web/docker-compose.yml)            |
 
-
 ## Compose
+
 > Structure and order of elements in a Compose file
 
 ```yaml

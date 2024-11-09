@@ -3,7 +3,6 @@
 version: "3.8"
 name: "nextcloud"
 
-
 services:
   nextcloud:
     image: nextcloud
@@ -12,8 +11,6 @@ services:
     depends_on:
       - nextcloud-db
       - redis
-    ports:
-      - 8080:80
     volumes:
       - /mnt/data/docker/nextcloud/nextcloud/html:/var/www/html
       - /mnt/data/docker/nextcloud/nextcloud/custom_apps:/var/www/html/custom_apps
@@ -37,13 +34,16 @@ services:
     volumes:
       - /mnt/data/docker/nextcloud/database/data:/var/lib/mysql
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=Europe/Zurich
       - MYSQL_ROOT_PASSWORD=pass
       - MYSQL_PASSWORD=pass
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=user
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
   
   collabora:
     image: collabora/code
@@ -53,9 +53,9 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Zurich
-      - password=pass
-      - username=user
-      - domain=nas.j4nis05.ch
+      - COLLABORA_USERNAME=user
+      - COLLABORA_PASSWORD=pass
+      - domain=nas\\.j4nis05\\.ch
       - extra_params=--o:ssl.enable=true
   
   redis:
@@ -64,7 +64,6 @@ services:
     restart: always
     volumes:
       - /mnt/data/docker/nextcloud/redis/data:/data
-
 
 networks:
   default:

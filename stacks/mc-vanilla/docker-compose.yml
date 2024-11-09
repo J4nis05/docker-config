@@ -5,15 +5,16 @@ name: "mc-vanilla"
 
 services:
   mc-wohnzimmer:
-    image: j4nis05/minecraft-server:latest
+    image: eclipse-temurin:22-jre-alpine
     container_name: mc-wohnzimmer
     restart: always
-    command: java -Xmx4096M -Xms4096M -jar /minecraft/server.jar nogui
+    command: java -Xmx8192M -Xms8192M -jar /minecraft/server.jar nogui
     ports:
-      - 25565:41340   # Port for Server Access
+      - 25565:25565   # Port for Server Access
       - 25575:25575   # Port for Remote Console Access
     volumes:
-      - /mnt/data/docker/games/vanilla:/minecraft
+      - /docker/games/vanilla:/minecraft
+    working_dir: /minecraft
 
 
 networks:

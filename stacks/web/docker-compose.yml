@@ -3,6 +3,12 @@ version: "3.8"
 name: "web"
 
 services:
+  admin.j4nis05.ch:
+    image: httpd:latest
+    container_name: admin.j4nis05.ch
+    restart: always
+    volumes:
+      - /docker/data/admin:/usr/local/apache2/htdocs
   cryotea.com:
     image: j4nis05/blazor.cryotea.com
     container_name: cryotea.com

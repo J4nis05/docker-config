@@ -1,30 +1,39 @@
-# Satisfactory-2 (Wohnzimmer)
-version: "3.8"
+# Satisfactory-2 (Wohnzimmer Sweat)
 name: "satisfactory2"
 
 
 services:
-  satisfacotry-2:
+  satisfactory-1:
     image: wolveix/satisfactory-server
-    container_name: satisfactory-2
+    container_name: satisfactory-sweat
     restart: always
     ports:
-      - 7777:7777/udp   # Game Port
-      - 15000:15000/udp # Beacon Port
-      - 15777:15777/udp # Query Port
+      - '7778:7777/udp'
+      - '7778:7777/tcp'
     volumes:
-      - /mnt/data/docker/games/satisfactory2/config:/config
+      - /docker/games/satisfactory-sweat/backup:/config/backups
+      - /docker/games/satisfactory-sweat/gamefiles:/config/gamefiles
+      - /docker/games/satisfactory-sweat/logs:/config/logs
+      - /docker/games/satisfactory-sweat/saved:/config/saved
     environment:
-      - MAXPLAYERS=4
+      - MAXPLAYERS=8
       - PGID=1000
       - PUID=1000
+      - ROOTLESS=false
       - STEAMBETA=false
+      - AUTOSAVENUM=15
     deploy:
       resources:
         limits:
           memory: 16G
         reservations:
-          memory: 14G
+          memory: 8G
+    healthcheck:
+      test: bash /healthcheck.sh
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
 
 
 networks:
