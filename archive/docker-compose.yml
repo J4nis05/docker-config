@@ -1,0 +1,53 @@
+services:
+  scraperr:
+    image: jpyles0524/scraperr:latest
+    container_name: scraperr
+    restart: always
+    build:
+      context: .
+      dockerfile: /docker/data/archive/scraperr/docker/frontend/Dockerfile
+    command: ["npm", "run", "start"]
+    expose: 
+      - 3000
+
+  scraperr_api:
+    image: jpyles0524/scraperr_api:latest
+    container_name: scraperr_api
+    restart: always
+    depends_on: 
+      - scraperr_db
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - LOG_LEVEL=INFO
+      #- OLLAMA_URL=http://ollama:11434
+      #- OLLAMA_MODEL=phi3
+      # or
+      # - OPENAI_KEY=<your_key>
+      # - OPENAI_MODEL=gpt3.5-turbo
+      - MONGODB_URI=mongodb://root:pass@scraperr_db:27017
+      - SECRET_KEY=4af1e5737b55dfa1e4f37c3a484b5d25d17d514fbc8553d78554dcd2c8a237fc
+      - ALGORITHM=HS256
+      - ACCESS_TOKEN_EXPIRE_MINUTES=600
+    init: True
+    build:
+      context: .
+      dockerfile: /docker/data/archive/scraperr/docker/api/Dockerfile
+    expose:
+      - 8000
+
+  scraperr_db:
+    image: mongo:8.0
+    container_name: scraperr_db
+    restart: always
+    volumes:
+      - /docker/data/archive/scraperr-db:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+
+
+networks:
+  default:
+    external: true
+    name: proxynet
