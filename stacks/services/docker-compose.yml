@@ -1,5 +1,4 @@
 # Core Services (Nginx Proxy Manager & Watchtower)
-version: "3.8"
 name: "services"
 
 
@@ -16,8 +15,8 @@ services:
       - /mnt/data/docker/services/nginx/data:/data
       - /mnt/data/docker/services/nginx/letsencrypt:/etc/letsencrypt
     environment:
-      - TZ=Europe/Zurich
-      - DISABLE_IPV6=true
+      - TZ=${TZ}
+      - DISABLE_IPV6=${DISABLE_IPV6}
 
   watchtower:
     image: containrrr/watchtower

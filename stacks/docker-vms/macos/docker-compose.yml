@@ -6,7 +6,7 @@ services:
   macos:
     image: ghcr.io/dockur/macos:1.14
     container_name: macos
-    restart: always
+    restart: no
     ports:
       - 8006:8006       # Browser Endpoint
       - 5900:5900/tcp   # 
@@ -19,14 +19,10 @@ services:
       # - ./disk2:/storage2
       # - ./disk3:/storage3
     environment:
-      - VERSION=15      # Sequioa
-      - VERSION=14      # Sonoma
-      - VERSION=13      # Ventura
-      - VERSION=12      # Monterey
-      - VERSION=11      # Big Sur
-      - DISK_SIZE=64G
-      # - RAM_SIZE=4G
-      # - CPU_CORES=2
+      - VERSION=${VERSION}
+      - DISK_SIZE=${DISK_SIZE}
+      # - RAM_SIZE=${RAM_SIZE}
+      # - CPU_CORES=${CPU_CORES}
     cap_add:
       - NET_ADMIN
     devices:

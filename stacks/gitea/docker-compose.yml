@@ -1,5 +1,4 @@
 # Gitea Server
-version: "3.8"
 name: "gitea"
 
 
@@ -14,13 +13,13 @@ services:
       - /mnt/data/docker/gitea/gitea/data:/data
       - /mnt/data/docker/gitea/gitea/config:/etc/gitea
     environment:
-      - USER_UID=1000
-      - USER_GID=1000
-      - GITEA__database__DB_TYPE=mysql
-      - GITEA__database__HOST=gitea-db:3306
-      - GITEA__database__NAME=gitea
-      - GITEA__database__USER=user
-      - GITEA__database__PASSWD=pass
+      - USER_UID=${USER_UID}
+      - USER_GID=${USER_GID}
+      - GITEA__database__DB_TYPE=${GITEA_DB_TYPE}
+      - GITEA__database__HOST=${GITEA_DB_HOST}
+      - GITEA__database__NAME=${GITEA_DB_NAME}
+      - GITEA__database__USER=${GITEA_DB_USER}
+      - GITEA__database__PASSWD=${GITEA_DB_PASSWD}
 
   gitea-db:
     image: mariadb
@@ -29,10 +28,10 @@ services:
     volumes:
       - /mnt/data/docker/gitea/database/data:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=pass
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=pass
-      - MYSQL_DATABASE=gitea
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
 
 
 networks:

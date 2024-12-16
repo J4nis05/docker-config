@@ -16,12 +16,12 @@ services:
       - /docker/games/satisfactory-chill/logs:/config/logs
       - /docker/games/satisfactory-chill/saved:/config/saved
     environment:
-      - MAXPLAYERS=8
-      - PGID=1000
-      - PUID=1000
-      - ROOTLESS=false
-      - STEAMBETA=false
-      - AUTOSAVENUM=15
+      - MAXPLAYERS=${MAXPLAYERS}
+      - PGID=${PGID}
+      - PUID=${PUID}
+      - ROOTLESS=${ROOTLESS}
+      - STEAMBETA=${STEAMBETA}
+      - AUTOSAVENUM=${AUTOSAVENUM}
     deploy:
       resources:
         limits:

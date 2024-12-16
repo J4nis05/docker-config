@@ -1,7 +1,7 @@
 # Nextcloud
 # https://chrisgrime.medium.com/deploy-nextcloud-with-docker-compose-935a76a5eb78
-version: "3.8"
 name: "nextcloud"
+
 
 services:
   nextcloud:
@@ -17,14 +17,14 @@ services:
       - /mnt/data/docker/nextcloud/nextcloud/config:/var/www/html/config
       - /mnt/data/docker/nextcloud/nextcloud/data:/var/www/html/data
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Zurich
-      - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=pass
-      - MYSQL_HOST=nextcloud-db
-      - REDIS_HOST=redis
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - REDIS_HOST=${REDIS_HOST}
   
   nextcloud-db:
     image: mariadb
@@ -34,11 +34,11 @@ services:
     volumes:
       - /mnt/data/docker/nextcloud/database/data:/var/lib/mysql
     environment:
-      - TZ=Europe/Zurich
-      - MYSQL_ROOT_PASSWORD=pass
-      - MYSQL_PASSWORD=pass
-      - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=user
+      - TZ=${TZ}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -50,13 +50,13 @@ services:
     container_name: collabora
     restart: always
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Zurich
-      - COLLABORA_USERNAME=user
-      - COLLABORA_PASSWORD=pass
-      - domain=nas\\.j4nis05\\.ch
-      - extra_params=--o:ssl.enable=true
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - COLLABORA_USERNAME=${COLLABORA_USERNAME}
+      - COLLABORA_PASSWORD=${COLLABORA_PASSWORD}
+      - domain=${DOMAIN}
+      - extra_params=${EXTRA_PARAMS}
   
   redis:
     image: redis:alpine
@@ -64,6 +64,7 @@ services:
     restart: always
     volumes:
       - /mnt/data/docker/nextcloud/redis/data:/data
+
 
 networks:
   default:

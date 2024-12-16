@@ -3,7 +3,7 @@ name: "satisfactory3"
 
 
 services:
-  satisfactory-1:
+  satisfactory-3:
     image: wolveix/satisfactory-server
     container_name: satisfactory-3
     restart: always
@@ -16,12 +16,12 @@ services:
       - /docker/games/satisfactory-3/logs:/config/logs
       - /docker/games/satisfactory-3/saved:/config/saved
     environment:
-      - MAXPLAYERS=8
-      - PGID=1000
-      - PUID=1000
-      - ROOTLESS=false
-      - STEAMBETA=false
-      - AUTOSAVENUM=15
+      - MAXPLAYERS=${MAXPLAYERS}
+      - PGID=${PGID}
+      - PUID=${PUID}
+      - ROOTLESS=${ROOTLESS}
+      - STEAMBETA=${STEAMBETA}
+      - AUTOSAVENUM=${AUTOSAVENUM}
     deploy:
       resources:
         limits:

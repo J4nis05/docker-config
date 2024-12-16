@@ -1,5 +1,4 @@
-# Tools (currently only Archive Team Warrior)
-version: "3.8"
+# Tools
 name: "tools"
 
 
@@ -9,9 +8,9 @@ services:
     container_name: archiveTeamWarrior
     restart: always
     environment:
-      - DOWNLOADER=J4nis05
-      - SELECTED_PROJECT=auto
-      - CONCURRENT_ITEMS=5
+      - DOWNLOADER=${DOWNLOADER}
+      - SELECTED_PROJECT=${SELECTED_PROJECT}
+      - CONCURRENT_ITEMS=${CONCURRENT_ITEMS}
     hostname: archiveTeamWarrior
     labels:
       com.centurylinklabs.watchtower.enable: "true"

@@ -3,7 +3,7 @@ name: "satisfactory2"
 
 
 services:
-  satisfactory-1:
+  satisfactory-2:
     image: wolveix/satisfactory-server
     container_name: satisfactory-sweat
     restart: always
@@ -16,12 +16,12 @@ services:
       - /docker/games/satisfactory-sweat/logs:/config/logs
       - /docker/games/satisfactory-sweat/saved:/config/saved
     environment:
-      - MAXPLAYERS=8
-      - PGID=1000
-      - PUID=1000
-      - ROOTLESS=false
-      - STEAMBETA=false
-      - AUTOSAVENUM=15
+      - MAXPLAYERS=${MAXPLAYERS}
+      - PGID=${PGID}
+      - PUID=${PUID}
+      - ROOTLESS=${ROOTLESS}
+      - STEAMBETA=${STEAMBETA}
+      - AUTOSAVENUM=${AUTOSAVENUM}
     deploy:
       resources:
         limits:

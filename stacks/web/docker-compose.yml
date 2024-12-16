@@ -1,5 +1,4 @@
 # Websites
-version: "3.8"
 name: "web"
 
 services:
@@ -9,6 +8,7 @@ services:
     restart: always
     volumes:
       - /docker/data/admin:/usr/local/apache2/htdocs
+  
   cryotea.com:
     image: j4nis05/blazor.cryotea.com
     container_name: cryotea.com

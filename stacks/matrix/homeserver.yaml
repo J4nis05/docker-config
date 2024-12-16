@@ -9,52 +9,51 @@
 # For more information on how to configure Synapse, including a complete accounting of
 # each option, go to docs/usage/configuration/config_documentation.md or
 # https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html
-server_name: "matrix.j4nis05.ch"
-pid_file: /data/homeserver.pid
+server_name : "matrix.j4nis05.ch"
+pid_file    : /data/homeserver.pid
 
-listeners:
-  - port: 8008
-    tls: false
-    type: http
-    x_forwarded: true
-    bind_addresses: ['0.0.0.0']
+listeners :
+  - port           : 8008
+    tls            : false
+    type           : http
+    x_forwarded    : true
+    bind_addresses : [ '0.0.0.0' ]
 
-    resources:
-      - names: [client, federation]
-        compress: false
+    resources :
+      - names    : [ client, federation ]
+        compress : false
 
-database:
-  name: psycopg2
-  args:
-    user: user
-    password: pass
-    host: matrix-db
-    database: synapse
-    cp_min: 5
-    cp_max: 10
+database :
+  name : psycopg2
+  args :
+    user     : user
+    password : pass
+    host     : matrix-db
+    database : synapse
+    cp_min   : 5
+    cp_max   : 10
 
-log_config: "/data/matrix.j4nis05.ch.log.config"
-media_store_path: /data/media_store
-registration_shared_secret: ""
-report_stats: false
-macaroon_secret_key: ""
-form_secret: ""
-signing_key_path: "/data/matrix.j4nis05.ch.signing.key"
+log_config                 : "/data/matrix.j4nis05.ch.log.config"
+media_store_path           : /data/media_store
+registration_shared_secret : ""
+report_stats               : false
+macaroon_secret_key        : ""
+form_secret                : ""
+signing_key_path           : "/data/matrix.j4nis05.ch.signing.key"
 
-trusted_key_servers:
-  - server_name: "matrix.org"
+trusted_key_servers :
+  - server_name : "matrix.org"
 
 # Recommended to set this to false, otherwise anyone can sign up
-enable_registration: true
+enable_registration : true
 
-allow_public_rooms_without_auth: true
-allow_public_rooms_over_federation: true
+allow_public_rooms_without_auth    : true
+allow_public_rooms_over_federation : true
 
 # We don't do Warnings arojund these parts
-enable_registration_without_verification: true
-suppress_key_server_warning: true
-allow_unsafe_locale: true
+enable_registration_without_verification : true
+suppress_key_server_warning              : true
+allow_unsafe_locale                      : true
 
 # To create a new user follow https://cyberhost.uk/element-matrix-setup/#createnewusers
-
 # vim:ft=yaml

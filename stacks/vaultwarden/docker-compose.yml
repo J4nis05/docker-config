@@ -1,5 +1,4 @@
 # Vaultwarden Server
-version: "3.8"
 name: "vaultwarden"
 
 
@@ -13,10 +12,10 @@ services:
     volumes:
       - /mnt/data/docker/vaultwarden/vaultwarden/data:/data
     environment:
-      - DATABASE_URL=mysql://user:pass@vaultwarden-db/vaultwarden
-      - ADMIN_TOKEN=HWV8oXjkT3yvSz8igEOs6d9GNJ+6VUMhXRDwpFlO5tKjHD6aq6NQaPABjTAd2Qkp
-      - WEBSOCKET_ENABLED=true
-      - SIGNUPS_ALLOWED=true
+      - DATABASE_URL=${DATABASE_URL}
+      - ADMIN_TOKEN=${ADMIN_TOKEN}
+      - WEBSOCKET_ENABLED=${WEBSOCKET_ENABLED}
+      - SIGNUPS_ALLOWED=${SIGNUPS_ALLOWED}
 
   vaultwarden-db:
     image: mariadb
@@ -25,10 +24,10 @@ services:
     volumes:
       - /mnt/data/docker/vaultwarden/database/data:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=pass
-      - MYSQL_DATABASE=vaultwarden
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=pass
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
 
 
 networks:

@@ -3,10 +3,12 @@
 ---
 
 * Backup of my Docker Compose Files.
-* Documentation of the Service Stacks is located in the [Docs](docs/README.md).
-* Tasks are in [TODO](TODO.md)
 
 ## Stacks
+
+### Archive
+
+* `TBD`
 
 ### Arr (`arr`)
 
@@ -18,9 +20,10 @@
 * [X] Prowlarr:             [prowlarr.j4nis05.ch](https://prowlarr.j4nis05.ch)
 * [X] Podgrab:              [podgrab.j4nis05.ch](https://podgrab.j4nis05.ch)
 
-### Games (`mc-vanilla`, `satisfactory-1/3`)
+### Games (`mc-vanilla`, `mc-atm9`, `satisfactory-1/3`)
 
 * [X] Minecraft Vanilla
+* [X] Minecraft All The Mods 9
 * [X] Satisfactory 1
 * [X] Satisfactory 2
 * [X] Satisfactory 3
@@ -43,6 +46,7 @@
 
 ### Personal Websites (`web`)
 
+* [X] Apache Webserver:     [admin.j4nis05.ch](https://admin.j4nis05.ch)
 * [X] Cryotea.com:          [cryotea.com](http://cryotea.com)
 * [X] Startpage:            [start.j4nis05.ch](https://start.j4nis05.ch)
 * [X] Personal Website:     [www.j4nis05.ch](https://www.j4nis05.ch)
@@ -68,33 +72,38 @@
 * [X] Vaultwarden:          [vault.j4nis05.ch](https://vault.j4nis05.ch)
 * [X] Vaultwarden Database
 
+### Wiki (`otterwiki`)
+
+* [X] Otterwiki:            [wiki.j4nis05.ch](https://wiki.j4nis05.ch)
+
 ### Table View
 
 | No | Name             | Link                                                       |
 | -- | ---------------- | ---------------------------------------------------------- |
-| 01 | `arr`            | [Docker Compose](stacks/arr/docker-compose.yml)            |
-| 02 | `gitea`          | [Docker Compose](stacks/gitea/docker-compose.yml)          |
-| 03 | `mail`           | [Docker Compose](stacks/mail/docker-compose.yml)           |
+| 01 | `archive`        | `TBD`                                                      |
+| 02 | `arr`            | [Docker Compose](stacks/arr/docker-compose.yml)            |
+| 03 | `gitea`          | [Docker Compose](stacks/gitea/docker-compose.yml)          |
 | 04 | `matrix`         | [Docker Compose](stacks/matrix/docker-compose.yml)         |
-| 05 | `mc-vanilla`     | [Docker Compose](stacks/mc-vanilla/docker-compose.yml)     |
-| 06 | `nextcloud`      | [Docker Compose](stacks/nextcloud/docker-compose.yml)      |
-| 07 | `pingvin`        | [Docker Compose](stacks/pingvin/docker-compose.yml)        |
-| 08 | `portainer`      | [Docker Compose](stacks/portainer/docker-compose.yml)      |
-| 09 | `satisfactory-1` | [Docker Compose](stacks/satisfactory-1/docker-compose.yml) |
-| 10 | `satisfactory-2` | [Docker Compose](stacks/satisfactory-2/docker-compose.yml) |
-| 11 | `satisfactory-3` | [Docker Compose](stacks/satisfactory-3/docker-compose.yml) |
-| 12 | `services`       | [Docker Compose](stacks/services/docker-compose.yml)       |
-| 13 | `tools`          | [Docker Compose](stacks/tools/docker-compose.yml)          |
-| 13 | `ts5`            | [Docker Compose](stacks/ts5/docker-compose.yml)            |
-| 14 | `vaultwarden`    | [Docker Compose](stacks/vaultwarden/docker-compose.yml)    |
-| 15 | `web`            | [Docker Compose](stacks/web/docker-compose.yml)            |
+| 05 | `mc-atm9`        | [Docker Compose](stacks/mc-atm9/docker-compose.yml)        |
+| 06 | `mc-vanilla`     | [Docker Compose](stacks/mc-vanilla/docker-compose.yml)     |
+| 07 | `nextcloud`      | [Docker Compose](stacks/nextcloud/docker-compose.yml)      |
+| 08 | `otterwiki`      | [Docker Compose](stacks/otterwiki/docker-compose.yml)      |
+| 09 | `pingvin`        | [Docker Compose](stacks/pingvin/docker-compose.yml)        |
+| 10 | `portainer`      | [Docker Compose](stacks/portainer/docker-compose.yml)      |
+| 11 | `satisfactory-1` | [Docker Compose](stacks/satisfactory-1/docker-compose.yml) |
+| 12 | `satisfactory-2` | [Docker Compose](stacks/satisfactory-2/docker-compose.yml) |
+| 13 | `satisfactory-3` | [Docker Compose](stacks/satisfactory-3/docker-compose.yml) |
+| 14 | `services`       | [Docker Compose](stacks/services/docker-compose.yml)       |
+| 15 | `terraria-nuke`  | [Docker Compose](stacks/terraria-nuke/docker-compose.yml)  |
+| 16 | `tools`          | [Docker Compose](stacks/tools/docker-compose.yml)          |
+| 17 | `vaultwarden`    | [Docker Compose](stacks/vaultwarden/docker-compose.yml)    |
+| 18 | `web`            | [Docker Compose](stacks/web/docker-compose.yml)            |
 
 ## Compose
 
 > Structure and order of elements in a Compose file
 
 ```yaml
-version: "3.8"
 name: ""
 
 

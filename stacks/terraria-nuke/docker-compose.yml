@@ -1,4 +1,4 @@
-version: "3.8"
+# Terraria Server for Nuke
 name: "terraria-nuke"
 
 
@@ -12,7 +12,7 @@ services:
     volumes:
       - /docker/games/terraria-nuke:/config
     environment:
-      - world=nuke_stinkt.wld
+      - world=${WORLD}
     tty: true
     stdin_open: true
 

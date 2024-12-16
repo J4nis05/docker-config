@@ -1,5 +1,4 @@
 # Arr (Jellyfin & co.)
-version: "3.8"
 name: "arr"
 
 
@@ -17,15 +16,15 @@ services:
       - /mnt/data/docker/arr/qbittorrent/config:/config
       - /mnt/data/docker/arr/qbittorrent/theme:/theme
     environment:
-      - VPN_ENABLED=yes
-      - VPN_PROV=mullvad
-      - VPN_CLIENT=openvpn
-      - STRICT_PORT_FORWARD=yes
-      - ENABLE_PRIVOXY=no
-      - WEBUI_PORT=8080
-      - LAN_NETWORK=192.168.1.0/24
-      - PUID=1000
-      - GUID=1000
+      - VPN_ENABLED=${VPN_ENABLED}
+      - VPN_PROV=${VPN_PROV}
+      - VPN_CLIENT=${VPN_CLIENT}
+      - STRICT_PORT_FORWARD=${STRICT_PORT_FORWARD}
+      - ENABLE_PRIVOXY=${ENABLE_PRIVOXY}
+      - WEBUI_PORT=${WEBUI_PORT}
+      - LAN_NETWORK=${LAN_NETWORK}
+      - PUID=${PUID}
+      - GUID=${GUID}
     cap_add:
       - NET_ADMIN
     devices:
@@ -47,9 +46,9 @@ services:
     volumes:
       - /mnt/data/docker/arr/jellyseerr/config:/app/config
     environment:
-      - TZ=Etc/UTC
-      - PORT=5055
-      - LOG_LEVEL=debug
+      - TZ=${TZ}
+      - PORT=${JELLYSEERR_PORT}
+      - LOG_LEVEL=${JELLYSEERR_LOG_LEVEL}
 
   sonarr:
     image: lscr.io/linuxserver/sonarr
@@ -60,9 +59,9 @@ services:
       - /mnt/qbit:/data
       - /nas:/nas
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
 
   radarr:
     image: lscr.io/linuxserver/radarr
@@ -73,9 +72,9 @@ services:
       - /mnt/qbit:/data
       - /nas:/nas
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
 
   prowlarr:
     image: lscr.io/linuxserver/prowlarr
@@ -84,9 +83,9 @@ services:
     volumes:
       - /mnt/data/docker/arr/prowlarr/config:/config
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
 
   podgrab:
     image: akhilrex/podgrab
@@ -96,7 +95,7 @@ services:
       - /mnt/data/docker/arr/podgrab/config:/config
       - /nas/media/audio/podcasts:/assets
     environment:
-      - CHECK_FREQUENCY=240
+      - CHECK_FREQUENCY=${CHECK_FREQUENCY}
 
 
 networks:
