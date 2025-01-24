@@ -1,0 +1,41 @@
+# /etc/fstab: static file system information.
+# 
+# Use 'blkid' to print the universally unique identifier for a device; 
+# this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+# systemd generates mount units based on this file, see systemd.mount(5).
+# Please run 'systemctl daemon-reload' after making changes here.
+# 
+# / was on /dev/nvme0n1p2 during installation
+# /boot/efi was on /dev/nvme0n1p1 during installation
+# swap was on /dev/nvme0n1p3 during installation
+#<file system>                             <mount point>                         <type>  <options>           <dump><pass>
+UUID=d0eddc89-e572-4df7-8ebd-63314ddb555f   /                                     ext4    errors=remount-ro   0     1
+UUID=FE01-6DBE                              /boot/efi                             vfat    umask=0077          0     1
+UUID=23735259-a5d0-4322-ad40-649060ae4e4b   none                                  swap    sw                  0     0
+
+# External Docker Drives
+#<file system>                             <mount point>                         <type>  <options>           <dump><pass>
+UUID=296dc68b-f003-42dc-b005-d272a9afb406   /mnt/qbit                             ext4    defaults,nofail     0     0
+UUID=ca758ee2-5a71-479b-b100-21870d7fcd1a   /mnt/data                             ext4    defaults,nofail     0     0
+UUID=a22c8fde-e409-4cae-a73f-bcbf130750ec   /mnt/backup                           ext4    defaults,nofail     0     0
+
+# Network Drives - NFS Mount
+192.168.1.97:/volume1/media                 /nas/media                            nfs     defaults
+192.168.1.97:/volume1/anime                 /nas/anime                            nfs     defaults
+192.168.1.97:/volume1/backup                /nas/backups                          nfs     defaults
+
+# Temporary Mounts
+#<file system>                             <mount point>                         <type>  <options>           <dump><pass>
+UUID=06859d2b-5f8e-400f-913e-4dd453093391   /mnt/temp                             auto    defaults            0     0
+
+# VSFTP Mounts
+#<file system>                             <mount point>                         <type>  <options>           <dump><pass>
+/docker/games/vanilla                       /home/ftpusers/minecraft/vanilla      none    bind                0     0
+/docker/games/atm9                          /home/ftpusers/minecraft/atm9         none    bind                0     0
+/docker/games/prominence                    /home/ftpusers/minecraft/prominence   none    bind                0     0
+/docker/games/waschbecken                   /home/ftpusers/minecraft/waschbecken  none    bind                0     0
+/docker/games/satisfactory-chill            /home/ftpusers/satisfactory/chill     none    bind                0     0
+/docker/games/satisfactory-sweat            /home/ftpusers/satisfactory/sweat     none    bind                0     0
+/docker/games/satisfactory-3                /home/ftpusers/satisfactory/extra     none    bind                0     0
+/docker/games/terraria-nuke                 /home/ftpusers/terraria/terraria-nuke none    bind                0     0
