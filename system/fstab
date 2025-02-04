@@ -30,12 +30,12 @@ UUID=a22c8fde-e409-4cae-a73f-bcbf130750ec   /mnt/backup                         
 UUID=06859d2b-5f8e-400f-913e-4dd453093391   /mnt/temp                             auto    defaults            0     0
 
 # VSFTP Mounts
-#<file system>                             <mount point>                         <type>  <options>           <dump><pass>
-/docker/games/vanilla                       /home/ftpusers/minecraft/vanilla      none    bind                0     0
-/docker/games/atm9                          /home/ftpusers/minecraft/atm9         none    bind                0     0
-/docker/games/prominence                    /home/ftpusers/minecraft/prominence   none    bind                0     0
-/docker/games/waschbecken                   /home/ftpusers/minecraft/waschbecken  none    bind                0     0
-/docker/games/satisfactory-chill            /home/ftpusers/satisfactory/chill     none    bind                0     0
-/docker/games/satisfactory-sweat            /home/ftpusers/satisfactory/sweat     none    bind                0     0
-/docker/games/satisfactory-3                /home/ftpusers/satisfactory/extra     none    bind                0     0
-/docker/games/terraria-nuke                 /home/ftpusers/terraria/terraria-nuke none    bind                0     0
+#<file system>                             <mount point>                               <type>  <options>           <dump><pass>
+/docker/games/vanilla                       /home/ftpusers/games/minecraft/vanilla      none    bind                0     0
+/docker/games/atm9                          /home/ftpusers/games/minecraft/atm9         none    bind                0     0
+/docker/games/prominence                    /home/ftpusers/games/minecraft/prominence   none    bind                0     0
+/docker/games/waschbecken                   /home/ftpusers/games/minecraft/waschbecken  none    bind                0     0
+/docker/games/satisfactory-chill            /home/ftpusers/games/satisfactory/chill     none    bind                0     0
+/docker/games/satisfactory-sweat            /home/ftpusers/games/satisfactory/sweat     none    bind                0     0
+/docker/games/satisfactory-3                /home/ftpusers/games/satisfactory/extra     none    bind                0     0
+/docker/games/terraria-nuke                 /home/ftpusers/games/terraria/terraria-nuke none    bind  
