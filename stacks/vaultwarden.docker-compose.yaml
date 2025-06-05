@@ -1,0 +1,35 @@
+name: "vaultwarden"
+
+
+services:
+  vaultwarden:
+    image: ${VAULTWARDEN_IMAGE}:${VAULTWARDEN_VERSION}
+    container_name: vaultwarden
+    restart: always
+    depends_on:
+      - vaultwarden-db
+    volumes:
+      - ${VAULTWARDEN_DATA}:/data
+    environment:
+      - DATABASE_URL=${VAULTWARDEN_DB_URL}
+      - ADMIN_TOKEN=${VAULTWARDEN_ADMIN_TOKEN}
+      - WEBSOCKET_ENABLED=${VAULTWARDEN_WEBSOCKET}
+      - SIGNUPS_ALLOWED=${VAULTWARDEN_SIGNUPS}
+
+  vaultwarden-db:
+    image: ${MARIADB_IMAGE}:${MARIADB_VERSION}
+    container_name: vaultwarden-db
+    restart: always
+    volumes:
+      - ${VAULTWARDEN_DATABASE}:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DEFAULT_PASSWORD}
+      - MYSQL_DATABASE=${VAULTWARDEN_DB}
+      - MYSQL_USER=${USER_ACCOUNT}
+      - MYSQL_PASSWORD=${DEFAULT_PASSWORD}
+
+
+networks:
+  default:
+    external: true
+    name: proxynet

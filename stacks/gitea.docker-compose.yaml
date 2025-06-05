@@ -1,0 +1,39 @@
+name: "gitea"
+
+
+services:
+  gitea:
+    image: ${GITEA_IMAGE}:${GITEA_VERSION}
+    container_name: gitea
+    restart: always
+    depends_on:
+      - gitea-db
+    volumes:
+      - ${GITEA_DATA}:/data
+      - ${GITEA_CONFIG}:/etc/gitea
+    environment:
+      - USER_UID=${PUID}
+      - USER_GID=${PGID}
+      - GITEA__database__DB_TYPE=${GITEA_DB_TYPE}
+      - GITEA__database__HOST=${GITEA_DB_HOST}
+      - GITEA__database__NAME=${GITEA_DB_NAME}
+      - GITEA__database__USER=${USER_ACCOUNT}
+      - GITEA__database__PASSWD=${DEFAULT_PASSWORD}
+
+  gitea-db:
+    image: ${MARIADB_IMAGE}:${MARIADB_VERSION}
+    container_name: gitea-db
+    restart: always
+    volumes:
+      - ${GITEA_DATABASE}:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DEFAULT_PASSWORD}
+      - MYSQL_USER=${USER_ACCOUNT}
+      - MYSQL_PASSWORD=${DEFAULT_PASSWORD}
+      - MYSQL_DATABASE=${GITEA_DB_NAME}
+
+
+networks:
+  default:
+    external: true
+    name: proxynet

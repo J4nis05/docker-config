@@ -1,0 +1,19 @@
+name: "portainer"
+
+
+services:
+  portainer:
+    image: portainer/portainer-ce:2.26.0
+    container_name: portainer
+    restart: always
+    ports:
+      - 9000:9000   # HTTP Port
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data:/data
+
+
+networks:
+  default:
+    external: true
+    name: proxynet

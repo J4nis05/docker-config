@@ -1,0 +1,54 @@
+# Nextcloud
+# https://chrisgrime.medium.com/deploy-nextcloud-with-docker-compose-935a76a5eb78
+name: "nextcloud"
+
+
+services:
+  nextcloud:
+    image: ${NEXTCLOUD_IMAGE}:${NEXTCLOUD_VERSION}
+    container_name: nextcloud
+    restart: always
+    depends_on:
+      - nextcloud-db
+      - redis
+    volumes:
+      - ${NEXTCLOUD_HTML}:/var/www/html
+      - ${NEXTCLOUD_CUSTOM_APPS}:/var/www/html/custom_apps
+      - ${NEXTCLOUD_CONFIG}:/var/www/html/config
+      - ${NEXTCLOUD_DATA}:/var/www/html/data
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - MYSQL_DATABASE=${NEXTCLOUD_DB_NAME}
+      - MYSQL_USER=${USER_ACCOUNT}
+      - MYSQL_PASSWORD=${DEFAULT_PASSWORD}
+      - MYSQL_HOST=${NEXTCLOUD_DB_HOST}
+      - REDIS_HOST=${NEXTCLOUD_REDIS_HOST}
+  
+  nextcloud-db:
+    image: ${MARIADB_IMAGE}:${MARIADB_VERSION}
+    container_name: nextcloud-db
+    restart: always
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    volumes:
+      - ${NEXTCLOUD_DATABASE}:/var/lib/mysql
+    environment:
+      - TZ=${TZ_ZURICH}
+      - MYSQL_ROOT_PASSWORD=${DEFAULT_PASSWORD}
+      - MYSQL_PASSWORD=${DEFAULT_PASSWORD}
+      - MYSQL_DATABASE=${NEXTCLOUD_DB_NAME}
+      - MYSQL_USER=${USER_ACCOUNT}
+  
+  redis:
+    image: ${REDIS_IMAGE}:${REDIS_VERSION}
+    container_name: redis
+    restart: always
+    volumes:
+      - ${NEXTCLOUD_REDIS}:/data
+
+
+networks:
+  default:
+    external: true
+    name: proxynet

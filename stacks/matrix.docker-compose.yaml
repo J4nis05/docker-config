@@ -1,0 +1,47 @@
+# https://linuxhandbook.com/install-matrix-synapse-docker/#step-2-set-up-synapse
+# homeserver.yaml generation: docker compose run --rm matrix generate
+# Element Sample Config: https://develop.element.io/config.json
+# https://cyberhost.uk/element-matrix-setup/
+name: "matrix"
+
+
+services:
+  element:
+    image: ${ELEMENT_IMAGE}:${ELEMENT_VERSION}
+    container_name: element
+    restart: always
+    volumes:
+      - ${ELEMENT_CONFIG}:/app/config.json
+
+  matrix:
+    image: ${SYNAPSE_IMAGE}:${SYNAPSE_VERSION}
+    container_name: matrix
+    restart: always
+    depends_on:
+      - matrix-db
+    volumes:
+      - ${MATRIX_DATA}:/data
+    environment:
+      - VIRTUAL_HOST=${MATRIX_HOST}
+      - VIRTUAL_PORT=${MATRIX_PORT}
+      - LETSENCRYPT_HOST=${MATRIX_HOST}
+      - SYNAPSE_SERVER_NAME=${MATRIX_HOST}
+      - SYNAPSE_REPORT_STATS=${MATRIX_REPORT}
+  
+  matrix-db:
+    image: ${POSTGRES_IMAGE}:${POSTGRES_VERSION}
+    container_name: matrix-db
+    restart: always
+    volumes:
+      - ${MATRIX_DATABASE}:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${DEFAULT_PASSWORD}
+      - POSTGRES_USER=${USER_ACCOUNT}
+      - POSTGRES_DB=${MATRIX_DB}
+      - POSTGRES_INITDB_ARGS=${MATRIX_DB_ARGS}
+
+
+networks:
+  default:
+    external: true
+    name: proxynet

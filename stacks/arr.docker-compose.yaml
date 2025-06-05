@@ -1,0 +1,103 @@
+name: "arr"
+
+
+services:
+  qbittorrent:
+    image: ${QBITTORRENT_IMAGE}:${QBITTORRENT_VERSION}
+    container_name: qbittorrent
+    restart: always
+    ports:
+      - 6881:6881
+      - 6881:6881/udp
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${QBITTORRENT_DOWNLOADS}:/data
+      - ${QBITTORRENT_CONFIG}:/config
+      - ${QBITTORRENT_THEME}:/theme
+    environment:
+      - VPN_ENABLED=${VPN_ENABLED}
+      - VPN_PROV=${VPN_PROV}
+      - VPN_CLIENT=${VPN_CLIENT}
+      - STRICT_PORT_FORWARD=${STRICT_PORT_FORWARD}
+      - ENABLE_PRIVOXY=${ENABLE_PRIVOXY}
+      - WEBUI_PORT=${WEBUI_PORT}
+      - LAN_NETWORK=${LAN_NETWORK}
+      - PUID=${PUID}
+      - PGID=${PGID}
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+
+  jellyfin:
+    image: ${JELLYFIN_IMAGE}:${JELLYFIN_VERSION}
+    container_name: jellyfin
+    restart: always
+    volumes:
+      - ${JELLYFIN_MEDIA}:/media
+      - ${JELLYFIN_CONFIG}:/config
+      - ${JELLYFIN_CACHE}:/cache
+
+  jellyseerr:
+    image: ${JELLYSEERR_IMAGE}:${JELLYSEERR_VERSION}
+    container_name: jellyseerr
+    restart: always
+    volumes:
+      - ${JELLYSEERR_CONFIG}:/app/config
+    environment:
+      - TZ=${JELLYSEERR_TZ}
+      - PORT=${JELLYSEERR_PORT}
+      - LOG_LEVEL=${JELLYSEERR_LOG_LEVEL}
+
+  sonarr:
+    image: ${SONARR_IMAGE}:${SONARR_VERSION}
+    container_name: sonarr
+    restart: always
+    volumes:
+      - ${SONARR_CONFIG}:/config
+      - ${QBITTORRENT_DOWNLOADS}:/data
+      - ${JELLYFIN_MEDIA}:/nas
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+
+  radarr:
+    image: ${RADARR_IMAGE}:${RADARR_VERSION}
+    container_name: radarr
+    restart: always
+    volumes:
+      - ${RADARR_CONFIG}:/config
+      - ${QBITTORRENT_DOWNLOADS}:/data
+      - ${JELLYFIN_MEDIA}:/nas
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+
+  prowlarr:
+    image: ${PROWLARR_IMAGE}:${PROWLARR_VERSION}
+    container_name: prowlarr
+    restart: always
+    volumes:
+      - ${PROWLARR_CONFIG}:/config
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+
+  podgrab:
+    image: ${PODGRAB_IMAGE}:${PODGRAB_VERSION}
+    container_name: podgrab
+    restart: always
+    volumes:
+      - ${PODGRAB_CONFIG}:/config
+      - ${PODGRAB_MEDIA}:/assets
+    environment:
+      - CHECK_FREQUENCY=${PODGRAB_CHECK_FREQUENCY}
+
+
+networks:
+  default:
+    external: true
+    name: proxynet

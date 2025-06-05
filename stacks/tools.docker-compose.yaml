@@ -1,0 +1,36 @@
+name: "tools"
+
+
+services:
+  otterwiki:
+    image: ${OTTERWIKI_IMAGE}:${OTTERWIKI_VERSION}
+    container_name: otterwiki
+    restart: always
+    volumes:
+      - ${OTTERWIKI_DATA}:/app-data
+  
+  pingvin:
+    image: ${PINGVIN_IMAGE}:${PINGVIN_VERSION}
+    container_name: pingvin
+    restart: always
+    volumes:
+      - ${PINGVIN_DATA}:/opt/app/backend/data
+      - ${PINGVIN_IMAGES}:/opt/app/frontend/public/img
+
+  archiveTeamWarrior:
+    image: ${ATW_IMAGE}:${ATW_VERSION}
+    container_name: archiveTeamWarrior
+    restart: always
+    environment:
+      - DOWNLOADER=${ATW_DOWNLOADER}
+      - SELECTED_PROJECT=${ATW_PROJECT}
+      - CONCURRENT_ITEMS=${ATW_CONCURRENT}
+    hostname: ${ATW_HOSTNAME}
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
+
+
+networks:
+  default:
+    external: true
+    name: proxynet

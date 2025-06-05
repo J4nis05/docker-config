@@ -1,0 +1,31 @@
+name: "services"
+
+
+services:
+  nginx:
+    image: ${NGINX_PROXY_IMAGE}:${NGINX_PROXY_VERSION}
+    container_name: nginx
+    restart: always
+    ports:
+      - 80:80     # HTTP Redirect Port
+      - 443:443   # HTTPS Redirect Port
+      - 81:81     # Management Port
+    volumes:
+      - ${NGINX_PROXY_DATA}:/data
+      - ${NGINX_PROXY_LETSENCRYPT}:/etc/letsencrypt
+    environment:
+      - TZ=${TZ_ZURICH}
+      - DISABLE_IPV6=true
+
+  watchtower:
+    image: ${WATCHTOWER_IMAGE}:${WATCHTOWER_VERSION}
+    container_name: watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+
+networks:
+  default:
+    external: true
+    name: proxynet
